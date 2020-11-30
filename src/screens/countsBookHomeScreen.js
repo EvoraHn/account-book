@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {Container, Text,Card,CardItem,Left,Right,Body,Button} from "native-base";
-import {StyleSheet,Image,Dimensions} from "react-native";
+import {StyleSheet,Image,Dimensions,ScrollView} from "react-native";
+
+//Obtener los valores por destructuring
+const { width, height } = Dimensions.get("window");
 const countsBookhomeScreen = ({navigation}) => {
     return (
         <Container style={styles.main}>
@@ -24,6 +27,56 @@ const countsBookhomeScreen = ({navigation}) => {
            <Container style={styles.verticalContainer}>
 
                <Container style={styles.horizontalContainer}>
+                   <ScrollView horizontal={true}>
+                   <Card transparent >
+                        <CardItem style={styles.cardItem}>
+                            <Button transparent style={styles.buttonContent}>
+                            <Body style={styles.mainContent}>
+                                
+                                    <Image source={require("../img/image.png")}
+                                    transparent style={styles.ImageLogo}/>
+                                    
+                                <Text>
+                                    Hola 
+                                </Text>
+                                
+                            </Body>
+                            </Button>
+                        </CardItem>
+                        
+                    </Card>
+                    <Card transparent>
+                        <CardItem style={styles.cardItem}>
+                            <Body style={styles.mainContent}>
+                                <Button  style={styles.buttonContent}>
+                                    <Image source={require("../img/image.png")}
+                                    transparent style={styles.ImageLogo}/>
+                                    
+                                </Button>
+                                <Text>
+                                        Hola
+                                    </Text>
+                                
+                            </Body>
+                        </CardItem>
+                        
+                    </Card>
+                    <Card transparent>
+                        <CardItem style={styles.cardItem}>
+                            <Body style={styles.mainContent}>
+                                <Button  style={styles.buttonContent}>
+                                    <Image source={require("../img/image.png")}
+                                    transparent style={styles.ImageLogo}/>
+                                    
+                                </Button>
+                                <Text>
+                                        Hola
+                                    </Text>
+                                
+                            </Body>
+                        </CardItem>
+                        
+                    </Card>
                     <Card transparent>
                         <CardItem style={styles.cardItem}>
                             <Body style={styles.mainContent}>
@@ -38,7 +91,11 @@ const countsBookhomeScreen = ({navigation}) => {
                                 
                             </Body>
                         </CardItem>
+                        
                     </Card>
+
+                   </ScrollView>
+                    
                     
                     
                </Container>
@@ -93,7 +150,9 @@ const styles = StyleSheet.create({
         fontSize:50,
     },
     verticalbar:{
-        flex:.25, 
+        flex:.20, 
+        //alignSelf:"center",
+        //justifyContent:"center",
         //flexDirection:'column',
         //backgroundColor:'red',
         //justifyContent:"center",
@@ -106,27 +165,29 @@ const styles = StyleSheet.create({
         fontSize:30,
         width:200,
         alignSelf:"flex-end",
-        marginRight:-30
+        marginRight:-35
     },
     verticalBarContent:{
         borderRadius:30,
-        height:600,
+        height:500,
         marginRight:-30,
         marginLeft:5,
-        marginTop:30,
+        //marginTop:30,
         backgroundColor:'blue',
         textAlign:"center",
         justifyContent:"center",
     },
     mainContent:{
         alignItems:"center",
-        justifyContent:"center",
+        //justifyContent:"center",
     },
     cardItem:{
         borderRadius:30,
         backgroundColor:'grey'
     },
     buttonContent:{
+        backgroundColor:'grey',
+        borderStyle:"dotted",
         height:200,
         alignItems:"center",
         justifyContent:"center",
