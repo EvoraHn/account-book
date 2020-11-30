@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {Container, Text,Card,CardItem,Left,Right,Body,Button} from "native-base";
 import {StyleSheet,Image,Dimensions} from "react-native";
-const countsBookhomeScreen = () => {
+const countsBookhomeScreen = ({navigation}) => {
     return (
         <Container style={styles.main}>
             
@@ -45,7 +45,8 @@ const countsBookhomeScreen = () => {
                
                <Container style={styles.verticalbar}>
                    <Card style={styles.verticalBarContent}>
-                        <Text style={styles.verticalBarText}>
+                        <Text style={styles.verticalBarText}  onPress={()=>
+                            {navigation.navigate("newAccountScreen")}}>
                            Nueva Cuenta
                         </Text>
                    </Card>
@@ -98,11 +99,14 @@ const styles = StyleSheet.create({
         //justifyContent:"center",
         //alignItems:"center",
         //paddingBottom:200
-        
        },
-    mainContent:{
-        alignItems:"center",
-        justifyContent:"center",
+    verticalBarText:{ 
+        transform: [{ rotate: '270deg'}],
+        color:"white",
+        fontSize:30,
+        width:200,
+        alignSelf:"flex-end",
+        marginRight:-30
     },
     verticalBarContent:{
         borderRadius:30,
@@ -112,6 +116,10 @@ const styles = StyleSheet.create({
         marginTop:30,
         backgroundColor:'blue',
         textAlign:"center",
+        justifyContent:"center",
+    },
+    mainContent:{
+        alignItems:"center",
         justifyContent:"center",
     },
     cardItem:{
@@ -124,14 +132,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         textAlign:"center"
     },
-    verticalBarText:{ 
-        transform: [{ rotate: '270deg'}],
-        color:"white",
-        fontSize:30,
-        width:200,
-        alignSelf:"flex-end",
-        marginRight:-30
-    },
+    
 
 
 
