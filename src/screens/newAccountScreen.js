@@ -8,9 +8,6 @@ const newAccountScreen =({navigation}) => {
 
                 <Container style={styles.verticalbar}>
                    <Card style={styles.verticalBarContent}>
-                        <Text style={styles.verticalBarText} >
-                           Nueva Cuenta
-                        </Text>
                    </Card>
                </Container>
 
