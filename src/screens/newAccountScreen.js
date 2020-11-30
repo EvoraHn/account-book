@@ -1,9 +1,6 @@
-import { Form } from "native-base";
 import React from "react";
 import{Container,Text,Card,CardItem} from "native-base";
-import
-    {StyleSheet,Image,Dimensions} 
-from "react-native";
+import{StyleSheet,Image,Dimensions} from "react-native";
 const newAccountScreen =() => {
     return (
         <Container>
