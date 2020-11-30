@@ -67,13 +67,7 @@ const countsBookhomeScreen = ({navigation}) => {
                             </Button>
                         </CardItem> 
                     </Card>
-
-                    
-
                    </ScrollView>
-                    
-                    
-                    
                </Container>
                
                <Container style={styles.verticalbar}>
@@ -98,8 +92,6 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:"center",
         alignItems:"center",
-        
-        
     },
     verticalContainer:{
         flexDirection:'row',
