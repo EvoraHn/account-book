@@ -1,8 +1,6 @@
 import React from "react";
-import {Container, Text,Card,CardItem,Left,Right,Body} from "native-base";
-import
-    {StyleSheet,Image,Dimensions} 
-from "react-native";
+import {Container, Text,Card,CardItem,Left,Right,Body,Button} from "native-base";
+import {StyleSheet,Image,Dimensions} from "react-native";
 const countsBookhomeScreen = () => {
     return (
         <Container style={styles.main}>
@@ -29,42 +27,25 @@ const countsBookhomeScreen = () => {
                     <Card transparent>
                         <CardItem style={styles.cardItem}>
                             <Body style={styles.mainContent}>
-                                <Image source={require("../img/image.png")}
-                                transparent style={styles.ImageLogo}/>
+                                <Button transparent style={styles.buttonContent}>
+                                    <Image source={require("../img/image.png")}
+                                    transparent style={styles.ImageLogo}/>
+                                    
+                                </Button>
                                 <Text>
-                                    Hola
-                                </Text>
+                                        Hola
+                                    </Text>
+                                
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card transparent>
-                        <CardItem style={styles.cardItem}>
-                            <Body style={styles.mainContent}>
-                                <Image source={require("../img/image.png")}
-                                transparent style={styles.ImageLogo}/>
-                                <Text>
-                                    Hola
-                                </Text>
-                            </Body>
-                        </CardItem>
-                    </Card>
-                    <Card transparent>
-                        <CardItem style={styles.cardItem}>
-                            <Body style={styles.mainContent}>
-                                <Image source={require("../img/image.png")}
-                                transparent style={styles.ImageLogo}/>
-                                <Text>
-                                    Hola
-                                </Text>
-                            </Body>
-                        </CardItem>
-                    </Card>
+                    
                     
                </Container>
                
                <Container style={styles.verticalbar}>
                    <Card style={styles.verticalBarContent}>
-                        <Text style={{ transform: [{ rotate: '270deg'}],color:"white",fontSize:30,width:200,alignSelf:"flex-end",marginRight:-30}}>
+                        <Text style={styles.verticalBarText}>
                            Nueva Cuenta
                         </Text>
                    </Card>
@@ -122,8 +103,6 @@ const styles = StyleSheet.create({
     mainContent:{
         alignItems:"center",
         justifyContent:"center",
-        
-        
     },
     verticalBarContent:{
         borderRadius:30,
@@ -134,13 +113,25 @@ const styles = StyleSheet.create({
         backgroundColor:'blue',
         textAlign:"center",
         justifyContent:"center",
-        
-        
     },
     cardItem:{
         borderRadius:30,
         backgroundColor:'grey'
-    }
+    },
+    buttonContent:{
+        height:200,
+        alignItems:"center",
+        justifyContent:"center",
+        textAlign:"center"
+    },
+    verticalBarText:{ 
+        transform: [{ rotate: '270deg'}],
+        color:"white",
+        fontSize:30,
+        width:200,
+        alignSelf:"flex-end",
+        marginRight:-30
+    },
 
 
 
