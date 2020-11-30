@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     verticalBarContent:{
         borderRadius:30,
-        height:600,
+        height:500,
         marginLeft:-30,
         marginRight:5,
         //marginTop:100,

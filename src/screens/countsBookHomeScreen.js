@@ -31,68 +31,44 @@ const countsBookhomeScreen = ({navigation}) => {
                    <Card transparent >
                         <CardItem style={styles.cardItem}>
                             <Button transparent style={styles.buttonContent}>
-                            <Body style={styles.mainContent}>
-                                
+                                <Body style={styles.mainContent}>
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
-                                    
                                 <Text>
-                                    Hola 
+                                    tarjeta 1 
                                 </Text>
-                                
-                            </Body>
+                                </Body>
                             </Button>
-                        </CardItem>
-                        
+                        </CardItem> 
                     </Card>
-                    <Card transparent>
+                    <Card transparent >
                         <CardItem style={styles.cardItem}>
-                            <Body style={styles.mainContent}>
-                                <Button  style={styles.buttonContent}>
+                            <Button transparent style={styles.buttonContent}>
+                                <Body style={styles.mainContent}>
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
-                                    
-                                </Button>
                                 <Text>
-                                        Hola
-                                    </Text>
-                                
-                            </Body>
-                        </CardItem>
-                        
+                                    tarjeta 2 
+                                </Text>
+                                </Body>
+                            </Button>
+                        </CardItem> 
                     </Card>
-                    <Card transparent>
+                    <Card transparent >
                         <CardItem style={styles.cardItem}>
-                            <Body style={styles.mainContent}>
-                                <Button  style={styles.buttonContent}>
+                            <Button transparent style={styles.buttonContent}>
+                                <Body style={styles.mainContent}>
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
-                                    
-                                </Button>
                                 <Text>
-                                        Hola
-                                    </Text>
-                                
-                            </Body>
-                        </CardItem>
-                        
+                                    tarjeta 3 
+                                </Text>
+                                </Body>
+                            </Button>
+                        </CardItem> 
                     </Card>
-                    <Card transparent>
-                        <CardItem style={styles.cardItem}>
-                            <Body style={styles.mainContent}>
-                                <Button transparent style={styles.buttonContent}>
-                                    <Image source={require("../img/image.png")}
-                                    transparent style={styles.ImageLogo}/>
-                                    
-                                </Button>
-                                <Text>
-                                        Hola
-                                    </Text>
-                                
-                            </Body>
-                        </CardItem>
-                        
-                    </Card>
+
+                    
 
                    </ScrollView>
                     
