@@ -44,13 +44,34 @@ const newAccountScreen =({navigation}) => {
                         
                             <Input placeholder={"0.00"}/>
                             <Input placeholder={"Total"}/>
-                            <Card >
+                            <Card style={styles.wrap} >
+                                
+                                <Button style={{flex:1}}>
+                                <Text>
+1
+                                </Text>
+
+                                </Button>
+                                <Button style={{flex:1}}>
+                                <Text>
+1
+                                </Text>
+
+                                </Button>
+
+
+                               
+                                
+                                
+
 
                             </Card>
+                            
+                            
                     </Card>
 
-                    <Card style={styles.comentaryContainer}>
-                        <Input placeholder={"Comentario"} />
+                    <Card style={styles.comentaryContainer} >
+                        <Input placeholder={"Comentario"}/>
                     </Card>
 
                     <Button transparent style={{alignSelf:"flex-end",marginTop:30}} > 
@@ -151,6 +172,10 @@ const styles = StyleSheet.create({
         alignItems:"center",
         borderRadius:20,
         marginRight:22
+    },
+    wrap:{
+        flexWrap:"nowrap",
+        flexDirection:"row"
     }
 
 
