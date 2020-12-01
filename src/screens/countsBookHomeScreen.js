@@ -119,13 +119,6 @@ const styles = StyleSheet.create({
     },
     verticalbar:{
         flex:.20, 
-        //alignSelf:"center",
-        //justifyContent:"center",
-        //flexDirection:'column',
-        //backgroundColor:'red',
-        //justifyContent:"center",
-        //alignItems:"center",
-        //paddingBottom:200
        },
     verticalBarText:{ 
         transform: [{ rotate: '270deg'}],
