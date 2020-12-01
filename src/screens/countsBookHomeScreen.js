@@ -71,12 +71,12 @@ const countsBookhomeScreen = ({navigation}) => {
                </Container>
                
                <Container style={styles.verticalbar}>
-                   <Card style={styles.verticalBarContent}>
-                        <Text style={styles.verticalBarText}  onPress={()=>
+                   <Button style={styles.verticalBarContent} onPress={()=>
                             {navigation.navigate("newAccountScreen")}}>
+                        <Text style={styles.verticalBarText}  >
                            Nueva Cuenta
                         </Text>
-                   </Card>
+                   </Button>
                </Container>
                
             </Container>
@@ -124,13 +124,15 @@ const styles = StyleSheet.create({
         transform: [{ rotate: '270deg'}],
         color:"white",
         fontSize:30,
-        width:200,
-        alignSelf:"flex-end",
-        marginRight:-35
+        width:250,
+        //height:300,
+        //alignSelf:"flex-end",
+        marginRight:20
     },
     verticalBarContent:{
         borderRadius:30,
-        height:500,
+        flex:.7,
+        //height:500,
         marginRight:-30,
         marginLeft:5,
         //marginTop:30,
