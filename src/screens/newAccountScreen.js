@@ -1,5 +1,6 @@
 import React from "react";
-import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right} from "native-base";
+import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right}
+ from "native-base";
 import{StyleSheet,Image,Dimensions} from "react-native";
 
 const { width, height } = Dimensions.get("window");
@@ -10,10 +11,11 @@ const newAccountScreen =({navigation}) => {
             <Container style={styles.verticalContainer}>
 
                 <Container style={styles.verticalbar}>
-                    <Card style={styles.verticalBarContent} >
-                    </Card>
-                    <Button onPress={()=>
-                                {navigation.navigate("counsBookHomeScreen")}}>
+                    
+                    <Button style={styles.verticalBarContent} onPress={()=>
+                                {navigation.navigate("countsBookHomeScreen")}}>
+                                    <Text>
+                                    </Text>
                     </Button>
                 </Container>
 
@@ -26,7 +28,7 @@ const newAccountScreen =({navigation}) => {
                     </Card>
                     <Item>
                         <Left > 
-                            <Button style={styles.Button} >
+                            <Button style={styles.Button}  >
                                 <Text >       
                                 </Text>
                             </Button>
@@ -39,47 +41,69 @@ const newAccountScreen =({navigation}) => {
                             </Card>
                         </Right>
                     </Item>
-
-                    <Card  style={styles.calculatorContainer}>
+                    <Card style={styles.calculatorContainer}>
                         
-                            <Input placeholder={"0.00"}/>
-                            <Input placeholder={"Total"}/>
-                            <Card style={styles.wrap} >
+                                <Card style={styles.calculatorScreen}>
+                                    <Input placeholder={"0.00"}/>
+                                    <Input placeholder={"Total"}/>
+                                </Card>
+                        
+                        <Container style={styles.calculatorButtonsContainer}>
+                            <Container style={styles.calculatorLeftButtons}>
                                 
-                                <Button style={{flex:1}}>
-                                <Text>
-1
-                                </Text>
-
+                                <Card style={styles.wrap} >
+                                <Button style={styles.calculatorButtons}>
+                                    <Text style={styles.calculatorButtonText}>
+                                        +
+                                    </Text>
                                 </Button>
-                                <Button style={{flex:1}}>
-                                <Text>
-1
-                                </Text>
-
+                                <Button style={styles.calculatorButtons}>
+                                    <Text style={styles.calculatorButtonText}>
+                                        -
+                                    </Text>
                                 </Button>
+                                </Card>
+                                <Card style={styles.wrap} >
+                                <Button style={styles.calculatorButtons}>
+                                    <Text style={styles.calculatorButtonText}>
+                                        *
+                                    </Text>
+                                </Button>
+                                <Button style={styles.calculatorButtons}>
+                                    <Text style={styles.calculatorButtonText}>
+                                        %
+                                    </Text>
+                                </Button>
+                            </Card> 
 
-
+                            </Container>
+                            <Container style={styles.calculatorRightButtons}>
                                
                                 
+                                <Button style={{flex:1,width:60
+                                    ,alignSelf:"center",justifyContent:"center"}}>
+                                    <Text style={styles.calculatorButtonText}>
+                                        =
+                                    </Text>
+                                </Button>
                                 
-
-
-                            </Card>
                             
-                            
+
+                            </Container>
+                        </Container>
                     </Card>
-
+                    
+                    
                     <Card style={styles.comentaryContainer} >
                         <Input placeholder={"Comentario"}/>
                     </Card>
 
-                    <Button transparent style={{alignSelf:"flex-end",marginTop:30}} > 
-                        <Card style={styles.addButton}>
+                    <Button transparent style={{alignSelf:"flex-end",marginBottom:30}} > 
+                        <Button style={styles.addButton}>
                             <Text>Agregar</Text>
-                            <Text>Nota</Text>
+                            
 
-                        </Card>
+                        </Button>
                         
                     </Button>
                </Container>
@@ -92,8 +116,6 @@ const styles = StyleSheet.create({
     main:{
         marginTop:32,
         flex:1,
-        
-
     },
     verticalbar:{
         flex:.10,
@@ -109,8 +131,9 @@ const styles = StyleSheet.create({
         marginRight:-30
     },
     verticalBarContent:{
+        flex:.7,
         borderRadius:30,
-        height:500,
+        width:50,
         marginLeft:-30,
         marginRight:5,
         //marginTop:100,
@@ -120,7 +143,7 @@ const styles = StyleSheet.create({
     },
     verticalContainer:{
         flexDirection:'row',
-        backgroundColor:'green',
+        //backgroundColor:'green',
     },
     horizontalContainer:{
         width:10,
@@ -151,10 +174,14 @@ const styles = StyleSheet.create({
     },
     calculatorContainer:{
         borderRadius:30,
-        flex:.5,
+        flex:1,
         justifyContent:"center",
         width:width*.60,
-        alignSelf:"center"
+        alignSelf:"center",
+        backgroundColor:'blue',
+        paddingTop:30,
+        paddingBottom:30
+
     },
     comentaryContainer:{
         borderRadius:30,
@@ -176,8 +203,129 @@ const styles = StyleSheet.create({
     wrap:{
         flexWrap:"nowrap",
         flexDirection:"row"
+    },
+    calculatorLeftButtons:{
+        backgroundColor:'purple',
+        //flexDirection:"column",
+        alignContent:"center",
+        alignItems:"center",
+        justifyContent:"center",
+        
+        //marginBottom:30
+        //resizeMode:'contain'
+        height:200
+
+    },
+    calculatorRightButtons:{
+        backgroundColor:'orange',
+        //flexDirection:"column",
+        flex:.5,
+        //marginBottom:30
+        height:200
+    },
+
+    calculatorScreen:{
+        flexDirection:"column",
+        
+        flex:.7,
+    },
+    calculatorScreenContainer:{
+        flex:1,
+        //height:60
+    },
+    calculatorButtonsContainer:{
+        //flexWrap:"wrap",
+        flexDirection:"row",
+        backgroundColor:'green',
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center"
+        //marginBottom:30
+       
+        
+        
+    },
+    calculatorButtons:{
+        flex:1,height:70,
+        justifyContent:"center"
+    },
+    calculatorButtonText:{
+        fontSize:30,
+        textAlign:"center"
     }
+
 
 
 })
 export default newAccountScreen;
+/*<Card style={styles.wrap} >
+                                
+<Button style={{flex:1}}>
+<Text>
+1
+</Text>
+
+</Button>
+<Button style={{flex:1}}>
+<Text>
+1
+</Text>
+
+</Button>
+</Card>*/
+
+
+
+/*<Container style={styles.container}>
+                    <Card  style={styles.calculatorContainer}>
+                        <Container style={styles.calculatorScreenContainer}>
+                            <Card style={styles.calculatorScreen}>
+                                <Input placeholder={"0.00"}/>
+                                <Input placeholder={"Total"}/>
+                            </Card>
+                        </Container>
+                        <Container style={styles.calculatorButtonsContainer}>
+
+                        
+                        <Container style={styles.calculatorLeftButtons}>
+                            <Card style={styles.wrap} >
+                                <Button style={{flex:.5}}>
+                                    <Text>
+                                        1
+                                    </Text>
+                                </Button>
+                                <Button style={{flex:.5}}>
+                                    <Text>
+                                        1
+                                    </Text>
+                                </Button>
+                            </Card>
+                            <Card style={styles.wrap} >
+                                <Button style={{flex:.5}}>
+                                    <Text>
+                                        1
+                                    </Text>
+                                </Button>
+                                <Button style={{flex:.5}}>
+                                    <Text>
+                                        1
+                                    </Text>
+                                </Button>
+                            </Card>
+                        </Container>
+                        <Container style={styles.calculatorRightButtons}>
+                        <Card style={styles.wrap} >
+                                <Button style={{flex:.5}}>
+                                    <Text>
+                                        1
+                                    </Text>
+                                </Button>
+                                
+                            </Card>
+                                
+                            
+                           
+                        </Container>
+                        </Container>
+                    </Card>
+                    </Container>*/
