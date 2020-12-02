@@ -34,7 +34,8 @@ const countsBookhomeScreen = ({navigation}) => {
                                 <Body style={styles.mainContent}>
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
-                                <Text>
+                                <Text onPress={()=>
+                                {navigation.navigate("allAccountScreen")}}>
                                     tarjeta 1 
                                 </Text>
                                 </Body>
