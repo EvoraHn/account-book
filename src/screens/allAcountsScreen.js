@@ -1,7 +1,8 @@
 
 import React from "react";
-import{StyleSheet,Image,Dimensions} from "react-native";
-import{Container,Text,Card,CardItem,Button} from "native-base";
+import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
+import{Container,Text,Card,CardItem,Button,Body,Item, Left, Right} from "native-base";
+//import { ScrollView } from "react-native-gesture-handler";
 
 const allAccountsScreen =({navigation}) => {
     return (
@@ -18,6 +19,25 @@ const allAccountsScreen =({navigation}) => {
                 </Container>
 
                <Container style={styles.horizontalContainer}>
+                    <ScrollView horizontal={false}>
+                    
+                        <CardItem style={styles.cardItem}>
+                            <Body style={styles.mainContent}>
+                                <Text>Nombre</Text>
+                                    <Item>
+                                        <Left>
+                                            <Text>Fecha</Text>
+                                        </Left>
+                                        <Right>
+                                            <Text>Hora</Text>
+                                        </Right>
+                                    </Item>
+                                    <Text>motivo de cuenta</Text>
+                                    <Text>Comentario</Text>
+                                    <Text>Cantidad</Text>
+                            </Body>
+                        </CardItem> 
+                    </ScrollView>
                </Container>
             </Container>
         </Container>
@@ -29,6 +49,8 @@ const styles = StyleSheet.create({
     main:{
         marginTop:32,
         flex:1,
+        justifyContent:"center",
+        alignItems:"center",
     },
     verticalbar:{
         flex:.10,
@@ -62,6 +84,30 @@ const styles = StyleSheet.create({
         width:10,
         flexDirection:'column',
         backgroundColor:'pink',
+        
+    },
+    
+    ImageLogo:{
+        width:150,
+        height:150,
+        resizeMode: "contain",
+        //alignSelf:"center"
+    },
+    
+    mainContent:{
+        alignItems:"center",
+        justifyContent:"center",
+        alignContent:"center"
+    },
+    cardItem:{
+        borderRadius:30,
+        backgroundColor:'grey',
+        alignItems:"center",
+        justifyContent:"center",
+        alignContent:"center",
+        marginTop:5,
+        flex:1
+        
     },
 })
 export default allAccountsScreen;
