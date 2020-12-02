@@ -24,8 +24,8 @@ const allAccountsScreen =({navigation}) => {
                         <CardItem style={styles.cardItem}>
                             <Body style={styles.mainContent}>
                                 <Text>Nombre</Text>
-                                    <Item>
-                                        <Left>
+                                    <Item >
+                                        <Left >
                                             <Text>Fecha</Text>
                                         </Left>
                                         <Right>
