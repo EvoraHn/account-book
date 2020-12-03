@@ -2,11 +2,26 @@
 import React from "react";
 import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
 import{Container,Text,Card,CardItem,Button,Body,Item, Left, Right} from "native-base";
+import{useFonts,Raleway_200ExtraLight,}from "@expo-google-fonts/raleway";
+import { AppLoading } from "expo";
 //import { ScrollView } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
+
 const allAccountsScreen =({navigation}) => {
+
+    //Importaciones para Fuentes
+    let [fontsLoaded,error] = useFonts({
+        Raleway_200ExtraLight,
+        //"FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
+        //"Gumy_Monster":require("../../assets/fonts/Gumy_Monster.ttf"),
+    });
+
+    if (!fontsLoaded){
+        return <AppLoading/>
+    }
+    
     return (
         <Container style={styles.main}>
             <Container style={styles.verticalContainer}>
