@@ -4,6 +4,8 @@ import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
 import{Container,Text,Card,CardItem,Button,Body,Item, Left, Right} from "native-base";
 //import { ScrollView } from "react-native-gesture-handler";
 
+const { width, height } = Dimensions.get("window");
+
 const allAccountsScreen =({navigation}) => {
     return (
         <Container style={styles.main}>
@@ -20,23 +22,59 @@ const allAccountsScreen =({navigation}) => {
 
                <Container style={styles.horizontalContainer}>
                     <ScrollView horizontal={false}>
-                    
-                        <CardItem style={styles.cardItem}>
-                            <Body style={styles.mainContent}>
-                                <Text>Nombre</Text>
-                                    <Item >
-                                        <Left >
-                                            <Text>Fecha</Text>
-                                        </Left>
-                                        <Right>
-                                            <Text>Hora</Text>
-                                        </Right>
-                                    </Item>
-                                    <Text>motivo de cuenta</Text>
-                                    <Text>Comentario</Text>
-                                    <Text>Cantidad</Text>
-                            </Body>
+                        <CardItem  style={styles.cardItem}>
+                            <Container style={styles.verticalCardContainer}>
+                                <Card transparent style={styles.cardButtonLeftContainer}>
+                                    <Button style={styles.leftButton}>
+                                        <Text>
+                                            1
+
+                                        </Text>
+                                    </Button>
+                                    <Button style={styles.leftButton}>
+                                        <Text>
+                                            2
+                                        </Text>
+                                    </Button>
+
+                                </Card>
+                                <Card transparent style={styles.middleCardContainer}>
+                                    <Body style={styles.mainContent}>
+                                        <Text>Nombre</Text>
+                                        <Item >
+                                            <Left >
+                                                <Text>Fecha</Text>
+                                            </Left>
+                                            <Right>
+                                                <Text>Hora</Text>
+                                            </Right>
+                                        </Item>
+                                        <Text>motivo de cuenta</Text>
+                                        <Text>Comentario</Text>
+                                        <Text>Cantidad</Text>
+                                    </Body>
+                                </Card>
+
+                                <Card transparent style={styles.cardButtonRightContainer}>
+
+                                    <Button style={styles.rightButton}>
+                                        <Text>
+                                            
+                                            
+                                        </Text>
+                                    </Button>
+
+                                </Card>
+
+                                
+                                
+                                </Container>
+                            
                         </CardItem> 
+                        
+                        
+                    
+                        
                     </ScrollView>
                </Container>
             </Container>
@@ -101,13 +139,59 @@ const styles = StyleSheet.create({
     },
     cardItem:{
         borderRadius:30,
-        backgroundColor:'grey',
+        //backgroundColor:'grey',
         alignItems:"center",
         justifyContent:"center",
         alignContent:"center",
-        marginTop:5,
-        flex:1
+        height:width*.5,
+        marginLeft:width*.10,
+        marginRight:width*.10,
+        marginTop:5
         
     },
+    
+    verticalCardContainer:{
+        flexDirection:'row',
+        //backgroundColor:'grey',
+        height:width*.4,
+        alignItems:"center",
+        
+    },
+    cardButtonLeftContainer:{
+        flex:.2,
+        //backgroundColor:'green',
+        alignItems:"center",
+        justifyContent:"center",
+        alignContent:"center",
+        marginLeft:width*-.1
+    },
+    cardButtonRightContainer:{
+        flex:.2,
+        alignItems:"center",
+        justifyContent:"center",
+        alignContent:"center",
+        marginRight:width*-.12
+    },
+    middleCardContainer:{
+        flex:1,
+        padding:20,
+        justifyContent:"center",
+        alignContent:"center",
+        alignItems:"center",
+        alignSelf:"center"
+    },
+    rightButton:{
+        height:width*.38,
+        borderRadius:10
+    },
+    leftButton:{
+        height:width*.15,
+        marginBottom:5,
+        backgroundColor:'orange',
+        borderRadius:10
+    },
+    
+
+
 })
 export default allAccountsScreen;
