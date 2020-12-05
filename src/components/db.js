@@ -40,7 +40,7 @@ const insertAccount = (account, successFunc) => {
       (tx) => {
         tx.executeSql("insert into accounts (account) values (?)", [account]);
       },
-      (_t, error) => {
+      (_t, error) => { //el guion bajo significa que son variables opcionales
         console.log("Error al insertar la cuenta");
         console.log(error);
       },
@@ -65,6 +65,28 @@ const insertAccount = (account, successFunc) => {
         (_, error) => {
           console.log("Error al eliminar la tabla de cuentas");
           reject(error);
+        }
+      );
+    });
+  };
+
+
+  // Creacion de la tabla de cuentas
+  const setupDatabaseTableAsync = async () => {
+    return new Promise((resolve, reject) => {
+      db.transaction(
+        (tx) => {
+          tx.executeSql(
+            "create table if not exists accounts (id_cuenta integer primary key not null, nombre text, motivo text, comentario text, cantidad integer, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, estado integer)"
+          );
+        },
+        (_t, Error) => {
+          console.log("Error al momento de crear la tabla");
+          console.log("error");
+          reject(error);
+        },
+        (_t, success) => {
+          resolve(success);
         }
       );
     });
