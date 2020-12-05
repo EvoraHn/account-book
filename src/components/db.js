@@ -32,7 +32,9 @@ const getAccount = () => {
     });
 };
 
-// Insertar Cuentas
+// Insertar Cuentas 
+//si hubiesen mas campos podemos enviarlos aqui directamente
+//o enviar un object y dentro del object escribirlo -- despues de value
 const insertAccount = (account, successFunc) => {
     db.transaction(
       (tx) => {
@@ -48,3 +50,22 @@ const insertAccount = (account, successFunc) => {
     );
   };
   
+
+  //Borrar de la base de datos la tabla
+  //lo vamos hacer mediante una promesa
+  const dropDatabaseTableAsync = async() => {
+    return new Promise((resolve, reject) => {
+      db.transaction(
+        (tx) => {
+          tx.executeSql("drop table accounts");
+        },
+        (_, result) => {
+          resolve(result);
+        },
+        (_, error) => {
+          console.log("Error al eliminar la tabla de cuentas");
+          reject(error);
+        }
+      );
+    });
+  };
