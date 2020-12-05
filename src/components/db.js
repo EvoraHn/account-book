@@ -77,7 +77,7 @@ const insertAccount = (account, successFunc) => {
       db.transaction(
         (tx) => {
           tx.executeSql(
-            "create table if not exists accounts (id_cuenta integer primary key not null, nombre text, motivo text, comentario text, cantidad integer, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, estado integer)"
+            "create table if not exists accounts (id_cuenta integer identity(1,1) primary key not null, nombre text, motivo text, comentario text, cantidad integer, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, estado integer)"
           );
         },
         (_t, Error) => {
