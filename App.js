@@ -2,6 +2,11 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
+//Splash
+import * as SplashScreen from "expo-splash-screen";
+import useDatabase from "./src/hooks/useDatabase";
+
+
 
 //Pantallas
 import countsBookHomeScreen from "./src/screens/countsBookHomeScreen";
@@ -10,6 +15,16 @@ import newAccountScreen from "./src/screens/newAccountScreen";
 const Stack = createStackNavigator();
 
 export default function App(){
+
+  //prevenir que se oculte el splash hasta que cargue la bd
+  SplashScreen.preventAutoHideAsync();
+  //Ocultar la pantalla de Splash 
+  const isLoadingComplete = useDatabase();
+
+
+  // Ocultar la pantalla del splash
+  if (isLoadingComplete) SplashScreen.hideAsync();
+  
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName={countsBookHomeScreen}>
