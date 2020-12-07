@@ -91,3 +91,26 @@ const insertAccount = (account, successFunc) => {
       );
     });
   };
+
+  //Exportar las funciones
+  export const database= {
+    getAccount,
+    insertAccount,
+    dropDatabaseTableAsync,
+    setupDatabaseTableAsync,
+  };
+
+  /*
+  //Ejemplo de como cargar informacion en un tabla al iniciar
+  //aclarar que primero la crearia y despues la insertaria
+  
+  const setupNombreTablaAsync = async () => {
+    return new Promise((resolve, reject) => {
+      db.transaction(
+        (tx) => {
+        tx.executeSql("insert into tabla (id, name) values (?,?)", [1, "Honduras"]) o con un arreglo , countriesList)
+        })
+        faltaria el tx error
+         y el succes
+    })
+  }*/
