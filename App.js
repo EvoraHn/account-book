@@ -6,7 +6,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as SplashScreen from "expo-splash-screen";
 import useDatabase from "./src/hooks/useDatabase";
 
-
+//Context
+//para compartit datos en toda la app a travez del contexto.
+import {AccountsContextProvider} from "./src/context/AccountContext";
 
 //Pantallas
 import countsBookHomeScreen from "./src/screens/countsBookHomeScreen";
@@ -24,7 +26,7 @@ export default function App(){
 
   // Ocultar la pantalla del splash
   if (isLoadingComplete) SplashScreen.hideAsync();
-  
+
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName={countsBookHomeScreen}>
