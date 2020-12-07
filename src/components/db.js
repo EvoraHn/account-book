@@ -93,7 +93,7 @@ const insertAccount = (account, successFunc) => {
   };
 
   //Exportar las funciones
-  export const database= {
+  export const databasele = {
     getAccount,
     insertAccount,
     dropDatabaseTableAsync,
