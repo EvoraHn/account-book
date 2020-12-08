@@ -62,7 +62,7 @@ const countsBookhomeScreen = ({navigation}) => {
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
                                 <Text>
-                                    tarjeta 3 
+                                    tarjeta s 
                                 </Text>
                                 </Body>
                             </Button>
