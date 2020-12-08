@@ -72,8 +72,8 @@ const countsBookhomeScreen = ({navigation}) => {
                    <Card transparent style={{height:500,alignItems:"center",backgroundColor:'#FAF8DC',}}>
                         <CardItem transparent style={{backgroundColor:'#FAF8DC',}}>
                             <Button transparent >
-                                    <Image source={require("../img/image.png")}
-                                    transparent style={{height:width*.7,width:width*.7,backgroundColor:'#FAF8DC',}}/>
+                                    <Image source={require("../img/about.png")}
+                                    transparent style={{height:width*.58,width:width*.51,backgroundColor:'#FAF8DC'}}/>
                             </Button>
                         </CardItem> 
                     </Card>
