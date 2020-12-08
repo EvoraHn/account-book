@@ -40,11 +40,11 @@ const allAccountsScreen =({navigation}) => {
                         <CardItem  style={styles.cardItem}>
                             <Container style={styles.verticalCardContainer}>
                                 <Card transparent style={styles.cardButtonLeftContainer}>
-                                    <Button style={styles.leftButton}>
+                                    <Button style={styles.leftButtonEdit}>
                                         <Image source={require("../img/Modificar.png")}
                                         transparent style={styles.imageButton}/>
                                     </Button>
-                                    <Button style={styles.leftButton}>
+                                    <Button style={styles.leftButtonDelete}>
                                         <Image source={require("../img/Eliminar.png")}
                                         transparent style={styles.imageButton}/>
                                     </Button>
@@ -101,11 +101,13 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:"center",
         alignItems:"center",
+        backgroundColor:'#FAF8DC',
     },
     verticalbar:{
         flex:.10,
         alignSelf:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        backgroundColor:'#FAF8DC',
     },
     verticalBarText:{ 
         transform: [{ rotate: '90deg'}],
@@ -121,27 +123,25 @@ const styles = StyleSheet.create({
         width:50,
         marginLeft:-30,
         marginRight:5,
-        //marginTop:100,
-        backgroundColor:'blue',
+        backgroundColor:'#111E6C',
         textAlign:"center",
         justifyContent:"center",
     },
     verticalContainer:{
         flexDirection:'row',
-        //backgroundColor:'green',
+        backgroundColor:'#FAF8DC',
     },
     horizontalContainer:{
         width:10,
         flexDirection:'column',
-        backgroundColor:'pink',
-        
+        backgroundColor:'#FAF8DC',
     },
     
     ImageLogo:{
         width:150,
         height:150,
         resizeMode: "contain",
-        //alignSelf:"center"
+        
     },
     
     mainContent:{
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     },
     cardItem:{
         borderRadius:30,
-        //backgroundColor:'grey',
+        backgroundColor:'#cdcdcd',
         alignItems:"center",
         justifyContent:"center",
         alignContent:"center",
@@ -164,14 +164,14 @@ const styles = StyleSheet.create({
     
     verticalCardContainer:{
         flexDirection:'row',
-        //backgroundColor:'grey',
+        backgroundColor:'#cdcdcd',
         height:width*.4,
         alignItems:"center",
         
     },
     cardButtonLeftContainer:{
         flex:.2,
-        //backgroundColor:'green',
+        
         alignItems:"center",
         justifyContent:"center",
         alignContent:"center",
@@ -194,12 +194,19 @@ const styles = StyleSheet.create({
     },
     rightButton:{
         height:width*.38,
-        borderRadius:10
+        borderRadius:10,
+        backgroundColor:'#17964E'
     },
-    leftButton:{
+    leftButtonEdit:{
         height:width*.15,
         marginBottom:5,
-        backgroundColor:'orange',
+        backgroundColor:'#F35D22',
+        borderRadius:10
+    },
+    leftButtonDelete:{
+        height:width*.15,
+        marginBottom:5,
+        backgroundColor:'#f36868',
         borderRadius:10
     },
     imageButton:{
