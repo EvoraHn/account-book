@@ -41,15 +41,12 @@ const allAccountsScreen =({navigation}) => {
                             <Container style={styles.verticalCardContainer}>
                                 <Card transparent style={styles.cardButtonLeftContainer}>
                                     <Button style={styles.leftButton}>
-                                        <Text>
-                                            1
-
-                                        </Text>
+                                        <Image source={require("../img/Modificar.png")}
+                                        transparent style={styles.imageButton}/>
                                     </Button>
                                     <Button style={styles.leftButton}>
-                                        <Text>
-                                            2
-                                        </Text>
+                                        <Image source={require("../img/Eliminar.png")}
+                                        transparent style={styles.imageButton}/>
                                     </Button>
 
                                 </Card>
@@ -205,6 +202,14 @@ const styles = StyleSheet.create({
         backgroundColor:'orange',
         borderRadius:10
     },
+    imageButton:{
+        height:width*.08,
+        width:width*0.08,
+        marginLeft:3,
+        marginRight:3,
+
+
+    }
     
 
 
