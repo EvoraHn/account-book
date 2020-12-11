@@ -1,10 +1,50 @@
 import React, { useState, useEffect } from "react";
-import {Container, Text,Card,CardItem,Left,Right,Body,Button} from "native-base";
+import {Container, Text,Card,CardItem,Left,Right,Body,Button,Spinner,Content} from "native-base";
 import {StyleSheet,Image,Dimensions,ScrollView} from "react-native";
+//import{useFonts,Raleway_200ExtraLight}from "@expo-google-fonts/raleway";
+//import { AppLoading } from "expo";
+
+
+//Importación de Fuentes Expo
+import * as Font from "expo-font";
 
 //Obtener los valores por destructuring
 const { width, height } = Dimensions.get("window");
+
+ /*   let [fontsLoaded,error] = useFonts({
+        Raleway_200ExtraLight,
+        //"FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
+        //"Gumy_Monster":require("../../assets/fonts/Gumy_Monster.ttf"),
+
+    });
+    
+    if (!fontsLoaded){
+        return <AppLoading/>
+    }
+*/
+
 const countsBookhomeScreen = ({navigation}) => {
+const [fontsLoaded, setFontsLoaded] = useState(false);
+useEffect(() => {
+    const loadFontsAsync = async () => {
+      await Font.loadAsync({
+        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      }).then(() => {
+        setFontsLoaded(true);
+      });
+    };
+
+    loadFontsAsync();
+  }, []);
+
+    if (!fontsLoaded)
+    return (
+      <Content contentContainerStyle={styles.content}>
+        <Spinner color="blue" />
+      </Content>
+    );
+  
+
     return (
         <Container style={styles.main}>
             
@@ -27,7 +67,7 @@ const countsBookhomeScreen = ({navigation}) => {
            <Container style={styles.verticalContainer}>
 
                <Container style={styles.horizontalContainer}>
-                   <ScrollView horizontal={true} style={{height:10}}>
+                   <ScrollView horizontal={true} style={{flex:1}}>
                    <Card transparent >
                         <CardItem style={styles.cardItem}>
                             <Button transparent style={styles.buttonContent}>
@@ -35,7 +75,7 @@ const countsBookhomeScreen = ({navigation}) => {
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
                                 <Text onPress={()=>
-                                {navigation.navigate("allAccountScreen")}}>
+                                {navigation.navigate("allAccountScreen")}} style={{fontFamily:'Roboto',}}>
                                     tarjeta 1 
                                 </Text>
                                 </Body>
@@ -48,7 +88,7 @@ const countsBookhomeScreen = ({navigation}) => {
                                 <Body style={styles.mainContent}>
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
-                                <Text>
+                                <Text style={{fontFamily:'Roboto',}}>
                                     tarjeta 2 
                                 </Text>
                                 </Body>
@@ -61,7 +101,7 @@ const countsBookhomeScreen = ({navigation}) => {
                                 <Body style={styles.mainContent}>
                                     <Image source={require("../img/image.png")}
                                     transparent style={styles.ImageLogo}/>
-                                <Text>
+                                <Text style={{fontFamily:'Roboto',}}>
                                     tarjeta s 
                                 </Text>
                                 </Body>
@@ -69,15 +109,10 @@ const countsBookhomeScreen = ({navigation}) => {
                         </CardItem> 
                     </Card>
                    </ScrollView>
-                   <Card transparent style={{height:500,alignItems:"center",backgroundColor:'#FAF8DC',}}>
-                        <CardItem transparent style={{backgroundColor:'#FAF8DC',}}>
-                            <Button transparent >
-                                    <Image source={require("../img/about.png")}
-                                    transparent style={{height:width*.58,width:width*.51,backgroundColor:'#FAF8DC'}}/>
-                            </Button>
-                        </CardItem> 
-                    </Card>
+                 
+                   
                </Container>
+               
                
                <Container style={styles.verticalbar}>
                    <Button style={styles.verticalBarContent} onPress={()=>
@@ -105,6 +140,7 @@ const styles = StyleSheet.create({
     },
     verticalContainer:{
         flexDirection:'row',
+        flex:1,
         backgroundColor:'#FAF8DC',
     },
     horizontalContainer:{
@@ -120,13 +156,15 @@ const styles = StyleSheet.create({
     },
     title:{
         marginTop:-50,
-        fontSize:50,
+        fontSize:width*0.12,
         backgroundColor:'#FAF8DC',
+        fontFamily:'Roboto',
     },
     subtitle:{
         marginTop:-100,
-        fontSize:50,
+        fontSize:width*0.12,
         backgroundColor:'#FAF8DC',
+        fontFamily:'Roboto',
     },
     verticalbar:{
         flex:.20, 
@@ -138,22 +176,19 @@ const styles = StyleSheet.create({
         fontSize:30,
         width:250,
         marginRight:20,
+        fontFamily:'Roboto'
     },
     verticalBarContent:{
         borderRadius:30,
         flex:.7,
-        //height:500,
         marginRight:-30,
         marginLeft:5,
-        //marginTop:30,
         backgroundColor:'#111E6C',
         textAlign:"center",
         justifyContent:"center",
     },
     mainContent:{
         alignItems:"center",
-        //justifyContent:"center",
-        //backgroundColor:'#FAF8DC',
     },
     cardItem:{
         borderRadius:30,
@@ -173,3 +208,13 @@ const styles = StyleSheet.create({
 
 })
 export default countsBookhomeScreen;
+/*
+ <Card transparent style={{height:500,alignItems:"center",backgroundColor:'#FAF8DC',}}>
+                        <CardItem transparent style={{backgroundColor:'#FAF8DC',}}>
+                            <Button transparent >
+                                    <Image source={require("../img/about.png")}
+                                    transparent style={{height:width*.58,width:width*.51,backgroundColor:'#FAF8DC'}}/>
+                            </Button>
+                        </CardItem> 
+                    </Card>
+                    */
