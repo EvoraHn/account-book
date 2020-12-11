@@ -2,8 +2,7 @@
 import React from "react";
 import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
 import{Container,Text,Card,CardItem,Button,Body,Item, Left, Right} from "native-base";
-import{useFonts,Raleway_200ExtraLight,}from "@expo-google-fonts/raleway";
-import { AppLoading } from "expo";
+import * as Font from "expo-font";
 //import { ScrollView } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
@@ -12,15 +11,26 @@ const { width, height } = Dimensions.get("window");
 const allAccountsScreen =({navigation}) => {
 
     //Importaciones para Fuentes
-    let [fontsLoaded,error] = useFonts({
-        Raleway_200ExtraLight,
-        //"FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
-        //"Gumy_Monster":require("../../assets/fonts/Gumy_Monster.ttf"),
-    });
-
-    if (!fontsLoaded){
-        return <AppLoading/>
-    }
+    /*const [fontsLoaded, setFontsLoaded] = useState(false);
+    useEffect(() => {
+        const loadFontsAsync = async () => {
+          await Font.loadAsync({
+            Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+          }).then(() => {
+            setFontsLoaded(true);
+          });
+        };
+    
+        loadFontsAsync();
+      }, []);
+    
+        if (!fontsLoaded)
+        return (
+          <Content contentContainerStyle={styles.content}>
+            <Spinner color="blue" />
+          </Content>
+        );*/
+   
     
     return (
         <Container style={styles.main}>
