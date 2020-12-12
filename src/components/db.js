@@ -2,14 +2,14 @@ import React from "react";
 import * as SQlite from "expo-sqlite";
 
 //Crea y abre la base de datos
-const db = SQlite.openDatabase("accountbook.db");
+const db = SQlite.openDatabase("accounstbook.db");
 
 
 //Funcionalidades de la base de datos
 
 //Obtener las cuentas del cliente
 //Traer todas las tuplas que esten en una base y convertirlas en un arreglo
-const getAccount = () => {
+const getAccounts = (setAccountsFunc) => {
     //las peticiones se realizan mediante transacciones
     //se realizara mediante un callback(le pasamos una funcion como parametro de otra funcion)
 
@@ -19,14 +19,14 @@ const getAccount = () => {
         "select * from accounts",
         [],
         (_, { rows: { _array } }) => {
-            setNotesFunc(_array);
+            setAccountsFunc(_array);
           },
           (_t, error) => {
-            console.log("Error al momento de obtener las notas");
+            console.log("Error al momento de obtener las Cuentas");
             console.log(error);
           },
           (_t, _success) => {
-            console.log("Notas obtenidas");
+            console.log("Cuentas obtenidas");
           }
         );
     });
@@ -35,10 +35,19 @@ const getAccount = () => {
 // Insertar Cuentas 
 //si hubiesen mas campos podemos enviarlos aqui directamente
 //o enviar un object y dentro del object escribirlo -- despues de value
-const insertAccount = (account, successFunc) => {
+const insertAccounts = (id, nombre, motivo, comentario, cantidad, fecha, estado, successFunc) => {
     db.transaction(
       (tx) => {
-        tx.executeSql("insert into accounts (account) values (?)", [account]);
+        tx.executeSql("insert into accounts (id, nombre, motivo, comentario, cantidad, fecha, estado, status) values (?,?,?,?,?,?,?,?)", [
+          id,
+          nombre,
+          motivo,
+          comentario,
+          cantidad,
+          fecha,
+          estado,
+          "NUEVA"
+        ]);
       },
       (_t, error) => { //el guion bajo significa que son variables opcionales
         console.log("Error al insertar la cuenta");
@@ -77,7 +86,7 @@ const insertAccount = (account, successFunc) => {
       db.transaction(
         (tx) => {
           tx.executeSql(
-            "create table if not exists accounts (id_cuenta integer identity(1,1) primary key not null, nombre text, motivo text, comentario text, cantidad integer, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, estado integer)"
+            "create table if not exists accounts (id integer primary key autoincrement, nombre text not null, motivo text not null, comentario text not null, cantidad integer, fecha TIMESTAMP DEFAULT CURRENT_DATE, estado text not null, status)"
           );
         },
         (_t, Error) => {
@@ -92,12 +101,43 @@ const insertAccount = (account, successFunc) => {
     });
   };
 
+
+  //Agregar una tabla por defecto
+  const setupAccountsAsync = async() =>{
+    return new Promise((resolve, reject) => {
+      db.transaction(
+        (tx) => {
+          tx.executeSql("insert into accounts (id, nombre, motivo, comentario, cantidad, fecha, estado, status) values (?,?,?,?,?,?,?,?)", [
+            1,
+            "Juan",
+            "venta",
+            "Vendi celular",
+            1,
+            "2020-12-11",
+            "deben",
+            "NUEVA",
+          ]);
+        },
+        (_t, error) => {
+          console.log("Error al insertar los valores por defecto");
+          console.log(error);
+          reject(error);
+        },
+        (_t, success) => {
+          resolve(success);
+        }
+      );
+    });
+  };
+
   //Exportar las funciones
-  export const databasele = {
-    getAccount,
-    insertAccount,
+  export const database = {
+    getAccounts,
+    insertAccounts,
     dropDatabaseTableAsync,
     setupDatabaseTableAsync,
+    setupAccountsAsync,
+    
   };
 
   /*
