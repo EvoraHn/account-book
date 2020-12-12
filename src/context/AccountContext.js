@@ -22,14 +22,19 @@ export const AccountsContextProvider = (props) => {
       };
 
 
-      const addNewAccount = (accounts) => {
-        return database.insertAccounts(account, refreshAccounts);
+      const addNewAccount = (id, nombre, motivo, comentario, cantidad, fecha, estado, successFunc) => {
+        return database.insertAccounts(id, nombre, motivo, comentario, cantidad, fecha, estado, refreshAccounts);
       };
+
+      const dropAccount = () => {
+        return database.dropDatabaseTableAsync();
+      }
     
       // Crear el objeto de contexto
       const accountsContext = {
         accounts,
         addNewAccount,
+        dropAccount
       };
 
       // Pasar los valores al proveedor y retornarlo
