@@ -14,6 +14,7 @@ import {AccountsContextProvider} from "./src/context/AccountContext";
 import countsBookHomeScreen from "./src/screens/countsBookHomeScreen";
 import newAccountScreen from "./src/screens/newAccountScreen";
 import allAccountScreen from "./src/screens/allAcountsScreen";
+import aboutScreen from "./src/screens/aboutScreen";
 //Navegación en pilas
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ export default function App(){
         <Stack.Screen name="countsBookHomeScreen" component={countsBookHomeScreen} options={{headerShown:false}}/>
         <Stack.Screen name="newAccountScreen" component={newAccountScreen} options={{headerShown:false}}/>
         <Stack.Screen name="allAccountScreen" component={allAccountScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="aboutScreen" component={aboutScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
