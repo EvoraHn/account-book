@@ -1,15 +1,33 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
-import{Container,Text,Card,CardItem,Button,Body,Item, Left, Right} from "native-base";
+import{
+    Container,
+    Text,
+    Card,
+    CardItem,
+    Button,
+    Body,
+    Item,
+    Left,
+    Right} from "native-base";
+
 import{useFonts,Raleway_200ExtraLight,}from "@expo-google-fonts/raleway";
 import { AppLoading } from "expo";
+
 //import { ScrollView } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
+// Utilizar el contexto de Cuentas
+import { AccountsContext } from "../context/AccountContext";
+
 
 const allAccountsScreen =({navigation}) => {
+
+    const { accounts } = useContext(AccountsContext);
+
+    console.log(accounts);
 
     //Importaciones para Fuentes
     let [fontsLoaded,error] = useFonts({
@@ -37,52 +55,69 @@ const allAccountsScreen =({navigation}) => {
 
                <Container style={styles.horizontalContainer}>
                     <ScrollView horizontal={false}>
-                        <CardItem  style={styles.cardItem}>
-                            <Container style={styles.verticalCardContainer}>
-                                <Card transparent style={styles.cardButtonLeftContainer}>
-                                    <Button style={styles.leftButtonEdit}>
-                                        <Image source={require("../img/Modificar.png")}
-                                        transparent style={styles.imageButton}/>
-                                    </Button>
-                                    <Button style={styles.leftButtonDelete}>
-                                        <Image source={require("../img/Eliminar.png")}
-                                        transparent style={styles.imageButton}/>
-                                    </Button>
 
-                                </Card>
-                                <Card transparent style={styles.middleCardContainer}>
-                                    <Body style={styles.mainContent}>
-                                        <Text>Nombre</Text>
-                                        <Item >
-                                            <Left >
-                                                <Text>Fecha</Text>
-                                            </Left>
-                                            <Right>
-                                                <Text>Hora</Text>
-                                            </Right>
-                                        </Item>
-                                        <Text>motivo de cuenta</Text>
-                                        <Text>Comentario</Text>
-                                        <Text>Cantidad</Text>
-                                    </Body>
-                                </Card>
-
-                                <Card transparent style={styles.cardButtonRightContainer}>
-
-                                    <Button style={styles.rightButton}>
-                                        <Text>
-                                            
-                                            
-                                        </Text>
-                                    </Button>
-
-                                </Card>
-
+                        {accounts
+                            ? accounts.map((account) => (
                                 
-                                
+                            <CardItem key={account.id.toString()}  style={styles.cardItem}>
+                                <Container style={styles.verticalCardContainer}>
+                                    <Card transparent style={styles.cardButtonLeftContainer}>
+                                        <Button style={styles.leftButtonEdit}>
+                                            <Image source={require("../img/Modificar.png")}
+                                            transparent style={styles.imageButton}/>
+                                        </Button>
+                                        <Button style={styles.leftButtonDelete}>
+                                            <Image source={require("../img/Eliminar.png")}
+                                            transparent style={styles.imageButton}/>
+                                        </Button>
+
+                                    </Card>
+                                    <Card transparent style={styles.middleCardContainer}>
+                                        
+                                        
+                                        <Body style={styles.mainContent}>
+                                            <Text style={styles.titleCards}>{account.nombre}</Text>
+                                            <Item >
+                                                <Left >
+                                                    <Text style={styles.titleCards}>Fecha</Text>
+                                                </Left>
+                                                <Right>
+                                                <Text>{account.fecha}</Text>
+                                                </Right>
+                                            </Item>
+                                            <Text style={styles.titleCards}>Motivo</Text>
+                                            <Text>{account.motivo}</Text>
+                                            <Text style={styles.titleCards}>comentario</Text>
+                                            <Text>{account.comentario}</Text>
+                                            <Item>
+                                                <Left >
+                                                    <Text style={styles.titleCards}>Cantidad  L.</Text>
+                                                </Left>
+                                                
+                                                <Text>{account.cantidad}</Text>
+                                            </Item>
+                                            
+                                        </Body>
+                                    </Card>
+
+                                    <Card transparent style={styles.cardButtonRightContainer}>
+
+                                        <Button style={styles.rightButton}>
+                                            <Text>
+                                                
+                                                
+                                            </Text>
+                                        </Button>
+
+                                    </Card>
+
                                 </Container>
-                            
-                        </CardItem> 
+                                
+                            </CardItem> 
+
+                            ))
+                            : null}
+                        
                         
                         
                     
@@ -216,7 +251,15 @@ const styles = StyleSheet.create({
         marginRight:3,
 
 
+    },
+
+    titleCards:{
+        fontWeight: 'bold',
+        fontSize:15,
+        backgroundColor:'#cdcdcd',
     }
+
+    
     
 
 
