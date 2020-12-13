@@ -60,7 +60,7 @@ const newAccountScreen =({navigation}) => {
                             <Container style={styles.calculatorLeftButtons}>
                                 
                                 <Card transparent style={styles.wrap} >
-                                <Button style={styles.calculatorButtons} onPress={()=> {suma(reemplazo)}} >
+                                <Button style={styles.calculatorButtons} onPress={()=> {suma()}} >
                                     <Text style={styles.calculatorButtonText}>
                                         +
                                     </Text>
