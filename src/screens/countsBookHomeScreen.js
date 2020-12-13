@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Container, Text,Card,CardItem,Left,Right,Body,Button,Spinner,Content} from "native-base";
 import {StyleSheet,Image,Dimensions,ScrollView} from "react-native";
-//import{useFonts,Raleway_200ExtraLight}from "@expo-google-fonts/raleway";
-//import { AppLoading } from "expo";
-
 
 //Importación de Fuentes Expo
 import * as Font from "expo-font";
@@ -55,7 +52,7 @@ useEffect(() => {
                     
                     <Right>
                         <Image source={require("../img/AccountsBook.png")}
-                         transparent style={styles.ImageLogo}/>
+                         transparent style={styles.Logo}/>
                     </Right>
             </CardItem >
             <CardItem transparent style={{backgroundColor:'#FAF8DC',}} >
@@ -70,48 +67,57 @@ useEffect(() => {
                    <ScrollView horizontal={true} style={{flex:1}}>
                    <Card transparent >
                         <CardItem style={styles.cardItem}>
-                            <Button transparent style={styles.buttonContent}>
+                            <Button transparent style={styles.buttonContent} onPress={()=>
+                                {navigation.navigate("allAccountScreen")}} >
                                 <Body style={styles.mainContent}>
-                                    <Image source={require("../img/image.png")}
+                                    <Image source={require("../img/1.png")}
                                     transparent style={styles.ImageLogo}/>
-                                <Text onPress={()=>
-                                {navigation.navigate("allAccountScreen")}} style={{fontFamily:'Roboto',}}>
-                                    tarjeta 1 
-                                </Text>
+                               
                                 </Body>
                             </Button>
                         </CardItem> 
                     </Card>
                     <Card transparent >
                         <CardItem style={styles.cardItem}>
-                            <Button transparent style={styles.buttonContent}>
+                            <Button transparent style={styles.buttonContent} onPress={()=>
+                                {navigation.navigate("allAccountScreen")}} >
                                 <Body style={styles.mainContent}>
-                                    <Image source={require("../img/image.png")}
+                                    <Image source={require("../img/2.png")}
                                     transparent style={styles.ImageLogo}/>
-                                <Text style={{fontFamily:'Roboto',}}>
-                                    tarjeta 2 
-                                </Text>
+                               
                                 </Body>
                             </Button>
                         </CardItem> 
                     </Card>
                     <Card transparent >
                         <CardItem style={styles.cardItem}>
-                            <Button transparent style={styles.buttonContent}>
+                            <Button transparent style={styles.buttonContent} onPress={()=>
+                                {navigation.navigate("aboutScreen")}} >
                                 <Body style={styles.mainContent}>
-                                    <Image source={require("../img/image.png")}
+                                    <Image source={require("../img/about.png")}
                                     transparent style={styles.ImageLogo}/>
-                                <Text style={{fontFamily:'Roboto',}}>
-                                    tarjeta s 
-                                </Text>
+                               
                                 </Body>
                             </Button>
                         </CardItem> 
                     </Card>
+
+                   
+                    
                    </ScrollView>
-                 
+                   
+                    <Container style={styles.aboutContainer}>
+                        <Button transparent  style={{width:width*.55,height:width*.55,resizeMode:'contain'}} onPress={()=>
+                                {navigation.navigate("aboutScreen")}}>
+                            <Image source={require("../img/about.png") } style={{width:width*.55,height:width*.55,resizeMode:'contain'}}
+                                    transparent />
+
+                        </Button>
+                           
+                    </Container> 
                    
                </Container>
+               
                
                
                <Container style={styles.verticalbar}>
@@ -148,10 +154,11 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         backgroundColor:'#FAF8DC',
     },
-    ImageLogo:{
-        width:150,
-        height:150,
-        resizeMode: "contain",
+    aboutContainer:{
+        flexDirection:'row',
+        flex:1,
+        textAlign:'center',
+        justifyContent:'center',
         backgroundColor:'#FAF8DC',
     },
     title:{
@@ -187,25 +194,40 @@ const styles = StyleSheet.create({
         textAlign:"center",
         justifyContent:"center",
     },
+    
+    ImageLogo:{
+        width:width*.74,
+        height:width*.74,
+        resizeMode: 'contain',
+        backgroundColor:'#cdcdcd',
+    },
+    Logo:{
+        width:150,
+        height:150,
+        resizeMode: "contain",
+        backgroundColor:'#FAF8DC',
+    },
     mainContent:{
         alignItems:"center",
     },
     cardItem:{
         borderRadius:30,
-        backgroundColor:'#cdcdcd'
+        backgroundColor:'#cdcdcd',
+        width:width*.8,
+        height:width*.8,
+        justifyContent:'center',
+        alignItems:'center'
     },
     buttonContent:{
+        alignSelf:'center',
         backgroundColor:'#cdcdcd',
         borderStyle:"dotted",
-        height:200,
+        width:width*.74,
+        height:width*.74,
         alignItems:"center",
         justifyContent:"center",
         textAlign:"center"
     },
-    
-
-
-
 })
 export default countsBookhomeScreen;
 /*
