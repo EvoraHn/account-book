@@ -9,11 +9,10 @@ const useDatabase = () => {
     const loadDatabase = async () => {
       try {
 
-        // await database.setupDatabaseTableAsync(); // Creacion de la tabla de cuentas
-        // await database.setupAccountsAsync();
+         await database.setupDatabaseTableAsync(); // Creacion de la tabla de cuentas
+        // await database.setupAccountsAsync(); // Tabla por defecto
         // await database.dropDatabaseTableAsync(); //Borrar de la base de datos la tabla
-        
-      
+              
   
         // Finaliza la carga de la DB
         setIsLoadingComplete(true);
