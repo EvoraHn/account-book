@@ -6,20 +6,54 @@ import { render } from "react-dom";
 
 const { width } = Dimensions.get("window");
 
-var numeroActivo=0; // numero que se operará con el total
+//var numeroActivo=0; // numero que se operará con el total
 var total=0; //total de las operaciones
 const newAccountScreen =({navigation}) => {
 
+    //const [total,serTotal]=useState("");
+    const [numeroActivo,setNumeroActivo]= useState("");
+    const [errorNumeroActivo,setErrorNumeroActivo]= useState("");
+    const [enableSave, setEnableSave] = useState(true);
+
+    useEffect(() => {
+        if (numeroActivo)  {
+            setEnableSave(false)
+        }
+        else setEnableSave(true);
+      }, [numeroActivo]);
+
+    const handlerSuma = async () => 
+    {
+        if(numeroActivo){
+             total= total + parseInt(numeroActivo);
+        }
+    } 
+    const handlerResta = async () => 
+    {
+        if(numeroActivo){
+             total= total-parseInt(numeroActivo);
+        }
+    } 
+    const handlerMultiplicación  = async () => 
+    {
+        if(numeroActivo){
+             total=total* parseInt(numeroActivo);
+        }
+    } 
+    const handlerDivisión = async () => 
+    {
+        if(numeroActivo){
+             total=total/parseInt(numeroActivo);
+        }
+    } 
+    
     return (
         <Container style={styles.main}>
             <Container style={styles.verticalContainer}>
-
                 <Container style={styles.verticalbar}>
-                    
                     <Button style={styles.verticalBarContent} onPress={()=>
-                                {navigation.navigate("countsBookHomeScreen")}}>
-                                    <Text>
-                                    </Text>
+                        {navigation.navigate("countsBookHomeScreen")}}>
+                            <Text/>
                     </Button>
                 </Container>
 
@@ -27,14 +61,12 @@ const newAccountScreen =({navigation}) => {
                     <Card  style={styles.inputBar}>
                         <Item >
                             <Input placeholder={"Motivo de la cuenta"}/>
-                           
                         </Item>
                     </Card>
                     <Item>
                         <Left > 
                             <Button style={styles.Button}  >
-                                <Text >       
-                                </Text>
+                                <Text/>       
                             </Button>
                         </Left>
                         <Right >
@@ -46,38 +78,36 @@ const newAccountScreen =({navigation}) => {
                         </Right>
                     </Item>
                     <Card style={styles.calculatorContainer}>
-                        
                                 <Card style={styles.calculatorScreen}>
                                     <Input style={{fontSize:width*0.08,textAlign:'right'}} 
                                         placeholder={"0.00"}
                                         value={numeroActivo}
-                                        onChangeText={numeroActivo}/>
+                                        onChangeText={setNumeroActivo}/>
                                     <Text style={{fontSize:width*0.2,textAlign:'right'}}>
                                         {total}</Text>
                                 </Card>
-                        
-                        <Container style={styles.calculatorButtonsContainer}>
+                            <Container style={styles.calculatorButtonsContainer}>
                             <Container style={styles.calculatorLeftButtons}>
                                 
                                 <Card transparent style={styles.wrap} >
-                                <Button style={styles.calculatorButtons} onPress={()=> {suma()}} >
+                                <Button style={styles.calculatorButtons} onPress={handlerSuma} >
                                     <Text style={styles.calculatorButtonText}>
                                         +
                                     </Text>
                                 </Button>
-                                <Button  style={styles.calculatorButtons}>
+                                <Button  style={styles.calculatorButtons} onPress={handlerResta}>
                                     <Text style={styles.calculatorButtonText}>
                                         -
                                     </Text>
                                 </Button>
                                 </Card>
                                 <Card transparent style={styles.wrap} >
-                                <Button style={styles.calculatorButtons}>
+                                <Button style={styles.calculatorButtons} onPress={handlerMultiplicación}>
                                     <Text style={styles.calculatorButtonText}>
                                         *
                                     </Text>
                                 </Button>
-                                <Button style={styles.calculatorButtons}>
+                                <Button style={styles.calculatorButtons} onPress={handlerDivisión}>
                                     <Text style={styles.calculatorButtonText}>
                                         %
                                     </Text>
@@ -86,21 +116,15 @@ const newAccountScreen =({navigation}) => {
 
                             </Container>
                             <Container style={styles.calculatorRightButtons}>
-                               
-                                
                                 <Button style={{height:width*.472,width:width*.185
                                     ,alignSelf:"center",justifyContent:"center",marginRight:width*.009}}>
                                     <Text style={styles.calculatorButtonText}>
                                         =
                                     </Text>
                                 </Button>
-                                
-                            
-
                             </Container>
                         </Container>
                     </Card>
-                    
                     
                     <Card style={styles.comentaryContainer} >
                         <Input placeholder={"Comentario"}/>
@@ -121,12 +145,6 @@ const newAccountScreen =({navigation}) => {
     
 
 }
-
-const suma =(numero)=> {
-    numero=numero+3;
-    alert(numero)
-    
-} 
 
  
 
