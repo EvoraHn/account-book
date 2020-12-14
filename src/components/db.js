@@ -4,7 +4,9 @@ import * as SQlite from "expo-sqlite";
 //Crea y abre la base de datos
 const db = SQlite.openDatabase("accounstbook.db");
 
-
+//Extraer la fecha actual
+let getDate = new Date();
+getDate = getDate.getDate()+"-"+(getDate.getMonth()+1)+"-"+getDate.getFullYear();
 //Funcionalidades de la base de datos
 
 //Obtener las cuentas del cliente
@@ -35,16 +37,15 @@ const getAccounts = (setAccountsFunc) => {
 // Insertar Cuentas 
 //si hubiesen mas campos podemos enviarlos aqui directamente
 //o enviar un object y dentro del object escribirlo -- despues de value
-const insertAccounts = (id, nombre, motivo, comentario, cantidad, fecha, estado, successFunc) => {
+const insertAccounts = (nombre, motivo, comentario, cantidad, fecha, estado, successFunc) => {
     db.transaction(
       (tx) => {
-        tx.executeSql("insert into accounts (id, nombre, motivo, comentario, cantidad, fecha, estado, status) values (?,?,?,?,?,?,?,?)", [
-          id,
+        tx.executeSql("insert into accounts (nombre, motivo, comentario, cantidad, fecha, estado, status) values (?,?,?,?,?,?,?)", [
           nombre,
           motivo,
           comentario,
           cantidad,
-          fecha,
+          getDate,
           estado,
           "NUEVA"
         ]);
@@ -86,7 +87,7 @@ const insertAccounts = (id, nombre, motivo, comentario, cantidad, fecha, estado,
       db.transaction(
         (tx) => {
           tx.executeSql(
-            "create table if not exists accounts (id integer primary key autoincrement, nombre text not null, motivo text not null, comentario text not null, cantidad integer, fecha TIMESTAMP DEFAULT CURRENT_DATE, estado text not null, status)"
+            "create table if not exists accounts (id integer primary key autoincrement, nombre text not null, motivo text not null, comentario text not null, cantidad integer, fecha text not null, estado text not null, status)"
           );
         },
         (_t, Error) => {
