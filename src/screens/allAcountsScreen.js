@@ -1,6 +1,7 @@
 
 import React, { useContext } from "react";
 import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
+<<<<<<< HEAD
 import{
     Container,
     Text,
@@ -16,8 +17,11 @@ import{useFonts,Raleway_200ExtraLight,}from "@expo-google-fonts/raleway";
 import { AppLoading } from "expo";
 
 //import { ScrollView } from "react-native-gesture-handler";
+=======
+import{Container,Text,Card,CardItem,Button,Body,Item, Left, Right} from "native-base";
+>>>>>>> Eliab
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 // Utilizar el contexto de Cuentas
 import { AccountsContext } from "../context/AccountContext";
@@ -25,6 +29,7 @@ import { AccountsContext } from "../context/AccountContext";
 
 const allAccountsScreen =({navigation}) => {
 
+<<<<<<< HEAD
     const { accounts } = useContext(AccountsContext);
 
     console.log(accounts);
@@ -40,6 +45,8 @@ const allAccountsScreen =({navigation}) => {
         return <AppLoading/>
     }
     
+=======
+>>>>>>> Eliab
     return (
         <Container style={styles.main}>
             <Container style={styles.verticalContainer}>
@@ -49,7 +56,6 @@ const allAccountsScreen =({navigation}) => {
                     <Button style={styles.verticalBarContent} onPress={()=>
                                 {navigation.navigate("countsBookHomeScreen")}}>
                                     <Text/>
-                                    
                     </Button>
                 </Container>
 

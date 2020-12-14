@@ -1,18 +1,14 @@
-import React from "react";
-import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right}
+import React, { useState, useEffect } from "react";
+import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right, Toast}
  from "native-base";
 import{StyleSheet,Image,Dimensions} from "react-native";
 import { render } from "react-dom";
 
 const { width } = Dimensions.get("window");
-var total=0; //total de las operaciones
+
 var numeroActivo=0; // numero que se operará con el total
-
+var total=0; //total de las operaciones
 const newAccountScreen =({navigation}) => {
-    
-
-    //variables para la calculadora
-    
 
     return (
         <Container style={styles.main}>
@@ -52,9 +48,11 @@ const newAccountScreen =({navigation}) => {
                     <Card style={styles.calculatorContainer}>
                         
                                 <Card style={styles.calculatorScreen}>
-                                    <Input style={{fontSize:width*0.08}} 
-                                     placeholder={"0.00"} value={numeroActivo}/>
-                                    <Text style={{fontSize:width*0.2}}>
+                                    <Input style={{fontSize:width*0.08,textAlign:'right'}} 
+                                        placeholder={"0.00"}
+                                        value={numeroActivo}
+                                        onChangeText={numeroActivo}/>
+                                    <Text style={{fontSize:width*0.2,textAlign:'right'}}>
                                         {total}</Text>
                                 </Card>
                         
@@ -62,7 +60,7 @@ const newAccountScreen =({navigation}) => {
                             <Container style={styles.calculatorLeftButtons}>
                                 
                                 <Card transparent style={styles.wrap} >
-                                <Button style={styles.calculatorButtons} onPress={()=> {render(),total=6} } >
+                                <Button style={styles.calculatorButtons} onPress={()=> {suma()}} >
                                     <Text style={styles.calculatorButtonText}>
                                         +
                                     </Text>
@@ -90,8 +88,8 @@ const newAccountScreen =({navigation}) => {
                             <Container style={styles.calculatorRightButtons}>
                                
                                 
-                                <Button style={{flex:1,width:60
-                                    ,alignSelf:"center",justifyContent:"center"}}>
+                                <Button style={{height:width*.472,width:width*.185
+                                    ,alignSelf:"center",justifyContent:"center",marginRight:width*.009}}>
                                     <Text style={styles.calculatorButtonText}>
                                         =
                                     </Text>
@@ -111,8 +109,6 @@ const newAccountScreen =({navigation}) => {
                     <Button transparent style={{alignSelf:"flex-end",marginBottom:30}} > 
                         <Button style={styles.addButton}>
                             <Text>Agregar</Text>
-                            
-
                         </Button>
                         
                     </Button>
@@ -120,14 +116,20 @@ const newAccountScreen =({navigation}) => {
             </Container>
         </Container>
     )
-} 
 
-function suma () {
-    total=8;
-    render();
-    return total;
+   
+    
 
 }
+
+const suma =(numero)=> {
+    numero=numero+3;
+    alert(numero)
+    
+} 
+
+ 
+
 
 
 
@@ -265,7 +267,7 @@ const styles = StyleSheet.create({
         //marginBottom:30
     },
     calculatorButtons:{
-        flex:1,height:70,
+        flex:1,height:width*.224,
         justifyContent:"center",
         marginLeft:3,
         
@@ -350,3 +352,37 @@ export default newAccountScreen;
                         </Container>
                     </Card>
                     </Container>*/
+
+
+                    /*
+                     <Card style={styles.calculatorScreen}>
+                                    <Input style={{fontSize:width*0.08}} 
+                                        placeholder={numberError ? "0.00": "Calculando..."}
+                                        placeholderTextColor={numberError ? "purple" : "purple"}
+                                        value={number}
+                                        onChangeText={setNumber}
+                                        />
+                                    <Text style={{fontSize:width*0.2}}>
+                                        {number}</Text>
+                                </Card>*/
+
+                                
+
+    //variables para la calculadora
+    // Verifica si el usuario ingresa información en el input 
+    //const {number,setNumber} = useState("");
+    //const {number,setNumber} = 0;
+    //const [numberError, setNumberError] = useState(false);
+
+  /*  const handlerNumber = () => {
+        if (!number) setNumberError(true);
+        else {
+        //navigation.navigate("Results", { country });
+        setNumber("");
+        setNumberError(false);
+        }
+        suma(number);
+    };
+    useEffect(() => {
+        if (number) setNumberError(false);
+    }, [number]);*/
