@@ -30,11 +30,13 @@ export default function App(){
 
   return(
     <NavigationContainer>
+      <AccountsContextProvider>
       <Stack.Navigator initialRouteName={countsBookHomeScreen}>
         <Stack.Screen name="countsBookHomeScreen" component={countsBookHomeScreen} options={{headerShown:false}}/>
         <Stack.Screen name="newAccountScreen" component={newAccountScreen} options={{headerShown:false}}/>
         <Stack.Screen name="allAccountScreen" component={allAccountScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
+      </AccountsContextProvider>
     </NavigationContainer>
   )
 }
