@@ -10,7 +10,8 @@ const countsBookhomeScreen = ({navigation}) => {
             
             <CardItem transparent style={{backgroundColor:'#FAF8DC',}}> 
                     <Left>
-                        <Text style={styles.title}>Account</Text>
+                        <Text style={styles.title} onPress={()=>
+                                {navigation.navigate("allAccountScreen")}}>Account</Text>
                     </Left>   
                     
                     <Right>
