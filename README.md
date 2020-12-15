@@ -27,34 +27,40 @@ Nota: usa CMD para instalar
  <br>
 ## 1 Expo ( necesario para el entorno de desarrollo).
  <br>
-fuera de la carpeta en donde se encuentra el proyecto:
-colocas el siguiente comando 
-<br>
-<code>Expo init</code>/ seleccionas la carpeta del proyecto
-(ya existente) y la opción (BLANK "la primera").*
-<br>
+ fuera de la carpeta en donde se encuentra el proyecto:
+ colocas el siguiente comando 
+ <br>
+ <code>Expo init</code>/ seleccionas la carpeta del proyecto
+ (ya existente) y la opción (BLANK "la primera").*
+ <br>
+
 ## 2 Native base (Componentes para estilizar)
-<br>
-- En la carpeta del proyecto colocas el comando:
-<br>
-<code>npm install native-base</code>
-<br>
+
+ <br>
+ - En la carpeta del proyecto colocas el comando:
+ <br>
+ <code>npm install native-base</code>
+ <br>
 
 ## 3 React Navigation.
-<br>
-- En la carpeta del proyecto escribe los comandos:
-<br>
-<code>npm install @react-navigation/native</code>
-<br>
-<code>expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view</code>
-<br>	
-Navegación en pilas:
-<br>
-<code>npm install @react-navigation/stack</code>
+
+ <br>
+ - En la carpeta del proyecto escribe los comandos:
+ <br>
+ <code>npm install @react-navigation/native</code>
+ <br>
+ <code>expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-   view</code>
+ <br>	
+ Navegación en pilas:
+ <br>
+ <code>npm install @react-navigation/stack</code>
+ <br>
+
 ## 4 Fuentes.
-<br>
-- En la carpeta del proyecto escribe el comando:
-<br>
-<code>expo install @expo-google-fonts/raleway</code>
+
+ <br>
+ - En la carpeta del proyecto escribe el comando:
+ <br>
+ <code>expo install @expo-google-fonts/raleway</code>
 
 		
