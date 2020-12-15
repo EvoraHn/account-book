@@ -56,7 +56,7 @@ useEffect(() => {
             <CardItem transparent style={{backgroundColor:'#FAF8DC',}}> 
                     <Left>
                         <Text style={styles.title} onPress={()=>
-                                {navigation.navigate("allAccountScreen")}}>Account</Text>
+                                {navigation.navigate("aboutScreen")}}>Account</Text>
                     </Left>   
                     
                     <Right>
