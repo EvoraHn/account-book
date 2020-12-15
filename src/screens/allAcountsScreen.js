@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     },
 
     botonEliminar:{
-        marginRight:(width/5.5)*-1,
+        marginRight:(width/5)*-1,
         backgroundColor:'#F35D22',
         borderRadius:10
     },
