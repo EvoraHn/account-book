@@ -23,11 +23,13 @@ const newAccountScreen =({navigation}) => {
       }, [numeroActivo]);
 
     const handlerSuma = async () => 
-    {
-        if(numeroActivo){
-             total= total + parseInt(numeroActivo);
+    {  
+            if(numeroActivo){
+                total= total + parseInt(numeroActivo);
+           }
         }
-    } 
+       
+     
     const handlerResta = async () => 
     {
         if(numeroActivo){
@@ -46,6 +48,16 @@ const newAccountScreen =({navigation}) => {
              total=total/parseInt(numeroActivo);
         }
     } 
+    const handlerIgual = async () => 
+    {
+       
+             //total= parseInt(total);
+             total=total;
+             
+        
+    } 
+    
+    
     
     return (
         <Container style={styles.main}>
@@ -83,7 +95,7 @@ const newAccountScreen =({navigation}) => {
                                         placeholder={"0.00"}
                                         value={numeroActivo}
                                         onChangeText={setNumeroActivo}/>
-                                    <Text style={{fontSize:width*0.2,textAlign:'right'}}>
+                                    <Text style={{fontSize:width*0.1,textAlign:'right'}}>
                                         {total}</Text>
                                 </Card>
                             <Container style={styles.calculatorButtonsContainer}>
@@ -117,7 +129,8 @@ const newAccountScreen =({navigation}) => {
                             </Container>
                             <Container style={styles.calculatorRightButtons}>
                                 <Button style={{height:width*.472,width:width*.185
-                                    ,alignSelf:"center",justifyContent:"center",marginRight:width*.009}}>
+                                    ,alignSelf:"center",justifyContent:"center",marginRight:width*.009}} 
+                                        onPress={handlerIgual}>
                                     <Text style={styles.calculatorButtonText}>
                                         =
                                     </Text>
