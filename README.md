@@ -30,30 +30,31 @@ Nota: usa CMD para instalar
 fuera de la carpeta en donde se encuentra el proyecto:
 colocas el siguiente comando 
 <br>
-*Expo init / seleccionas la carpeta del proyecto
+<code>Expo init</code>/ seleccionas la carpeta del proyecto
 (ya existente) y la opción (BLANK "la primera").*
 <br>
 ## 2 Native base (Componentes para estilizar)
 <br>
 - En la carpeta del proyecto colocas el comando:
 <br>
-*npm install native-base*
+<code>npm install native-base</code>
 <br>
 
-#3 React Navigation.
+## 3 React Navigation.
 <br>
-		- En la carpeta del proyecto escribe los comandos:
-		<br>
-		*npm install @react-navigation/native
-		<br>
-		*expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-		<br>	
-		Navegación en pilas:
-		<br>
-			*npm install @react-navigation/stack
-	#4 Fuentes.
-		<br>
-		- En la carpeta del proyecto escribe el comando:
-		<br>
-		- expo install @expo-google-fonts/raleway
+- En la carpeta del proyecto escribe los comandos:
+<br>
+<code>npm install @react-navigation/native</code>
+<br>
+<code>expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view</code>
+<br>	
+Navegación en pilas:
+<br>
+<code>npm install @react-navigation/stack</code>
+## 4 Fuentes.
+<br>
+- En la carpeta del proyecto escribe el comando:
+<br>
+<code>expo install @expo-google-fonts/raleway</code>
+
 		
