@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext} from "react";
 import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right, Toast}
  from "native-base";
-import{StyleSheet,Image,Dimensions} from "react-native";
+import{StyleSheet,Image,Dimensions, alert, Alert} from "react-native";
 import { render } from "react-dom";
 
 const { width } = Dimensions.get("window");
@@ -30,9 +30,14 @@ const newAccountScreen =({navigation}) => {
     const handlerNewAccount = async () =>{
         if (nombre&&motivo&&comentario&&cantidad){
             await addNewAccount(nombre, motivo, comentario, cantidad, refreshAccounts);
-
+            //Veo si la tabla se creo 
             console.log("Se guardo la tabla");
-            //Regresar aal menu
+
+            //Lanzo una alerta que se creo correctamente
+            Alert.alert('Listo.!', 'Cuenta Agregada correctamente', [
+                {text: 'Ok', onPress: () => console.log('Cerrando alerta')}
+            ]);
+            //Regresar al menu
             navigation.goBack();
         }else {
             setErrorAccount(true);

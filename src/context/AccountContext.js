@@ -1,6 +1,7 @@
 import React, { useEffect, createContext, useState } from "react";
 import { database } from "../components/db";
 
+
 // Crear el contexto de las notas
 export const AccountsContext = createContext({});
 
@@ -22,8 +23,10 @@ export const AccountsContextProvider = (props) => {
       };
 
 
-      const addNewAccount = ( nombre, motivo, comentario, cantidad, successFunc) => {
-        return database.insertAccounts( nombre, motivo, comentario, cantidad, refreshAccounts);
+      const addNewAccount = async ( nombre, motivo, comentario, cantidad) => {
+        await database.insertAccounts( nombre, motivo, comentario, cantidad, refreshAccounts);
+        //Actualizar la base con el refresh para que actualize en pantalla
+        return refreshAccounts();
       };
 
       const dropAccount = () => {
