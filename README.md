@@ -14,13 +14,19 @@ Aplicación en Javascript con base de datos en sql lite que permite hacer cálcu
 	░▐████▀██████░░█████░░
 	░░░▀▀▀░░█████▌░████▀░░
 	░░░░░░░░░▀▀███░▀▀▀░░░░
+
+## Planificación del Proyecto
+-proyecto
+<a href="https://github.com/users/EvoraHn/projects/2">
+-Ideas, paleta de colores y demás
+<a href="https://docs.google.com/document/d/1eANrnAEy3_yFAMUGIyllyRz4586AAFL6VYViMDhNTmM/edit?usp=sharing">
 ## Tecnologías utilizadas
 
 - React native
 - Expo
 - React navigation
 - NativeBase
-- Sqllite
+- Sql lite
 
 ## Guia de Instalación de componentes (NECESARIO)
 Nota: usa CMD para instalar               
