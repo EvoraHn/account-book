@@ -22,8 +22,8 @@ export const AccountsContextProvider = (props) => {
       };
 
 
-      const addNewAccount = ( nombre, motivo, comentario, cantidad, estado, successFunc) => {
-        return database.insertAccounts( nombre, motivo, comentario, cantidad, estado, refreshAccounts);
+      const addNewAccount = ( nombre, motivo, comentario, cantidad, successFunc) => {
+        return database.insertAccounts( nombre, motivo, comentario, cantidad, refreshAccounts);
       };
 
       const dropAccount = () => {
