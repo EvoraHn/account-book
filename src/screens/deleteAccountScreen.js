@@ -63,17 +63,7 @@ const deleteAccountScreen =({navigation}) => {
                                 
                             <CardItem   style={styles.cardItem}>
                                 <Container style={styles.verticalCardContainer}>
-                                    <Card transparent style={styles.cardButtonLeftContainer}>
-                                        <Button style={styles.leftButtonEdit}>
-                                            <Image source={require("../img/Modificar.png")}
-                                            transparent style={styles.imageButton}/>
-                                        </Button>
-                                        <Button style={styles.leftButtonDelete}>
-                                            <Image source={require("../img/Eliminar.png")}
-                                            transparent style={styles.imageButton}/>
-                                        </Button>
-
-                                    </Card>
+                                    
                                     <Card transparent style={styles.middleCardContainer}>
                                         
                                         
