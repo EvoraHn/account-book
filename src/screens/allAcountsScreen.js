@@ -1,6 +1,6 @@
 
 import React, { useContext } from "react";
-import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
+import{StyleSheet,Image,Dimensions,ScrollView, TouchableOpacity} from "react-native";
 import{
     Container,
     Content,
@@ -23,6 +23,8 @@ const { width } = Dimensions.get("window");
 
 // Utilizar el contexto de Cuentas
 import { AccountsContext } from "../context/AccountContext";
+
+import { AntDesign } from '@expo/vector-icons';
 
 
 const allAccountsScreen =({navigation}) => {
@@ -54,7 +56,7 @@ const allAccountsScreen =({navigation}) => {
                     
                     <Button style={styles.verticalBarContent} onPress={()=>
                                 {navigation.navigate("countsBookHomeScreen")}}>
-                                    <Text/>
+                                    
                     </Button>
                 </Container>
 
@@ -66,17 +68,7 @@ const allAccountsScreen =({navigation}) => {
                                 
                             <CardItem key={account.id.toString()}  style={styles.cardItem}>
                                 <Container style={styles.verticalCardContainer}>
-                                    <Card transparent style={styles.cardButtonLeftContainer}>
-                                        <Button style={styles.leftButtonEdit}>
-                                            <Image source={require("../img/Modificar.png")}
-                                            transparent style={styles.imageButton}/>
-                                        </Button>
-                                        <Button style={styles.leftButtonDelete}>
-                                            <Image source={require("../img/Eliminar.png")}
-                                            transparent style={styles.imageButton}/>
-                                        </Button>
-
-                                    </Card>
+                                    
                                     <Card transparent style={styles.middleCardContainer}>
                                         
                                         
@@ -105,27 +97,24 @@ const allAccountsScreen =({navigation}) => {
                                         </Body>
                                     </Card>
 
-                                    <Card transparent style={styles.cardButtonRightContainer}>
-
-                                        <Button style={styles.rightButton}>
-                                            <Text>
-                                                
-                                                
-                                            </Text>
-                                        </Button>
-
-                                    </Card>
+                                    
 
                                 </Container>
+                                <Item>
+                                <Button style={styles.botonEliminar} onPress={()=>
+                                {navigation.navigate("deleteAccountScreen")}}>
+                                  <Text style={{fontSize:10}}>Eliminar</Text>
+                                </Button>
+
+                               
+                                </Item>
+                                
+                               
                                 
                             </CardItem> 
 
                             ))
                             : null}
-                        
-                        
-                        
-                    
                         
                     </ScrollView>
                </Container>
@@ -142,6 +131,12 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         backgroundColor:'#FAF8DC',
+    },
+
+    botonEliminar:{
+        marginRight:(width/5.5)*-1,
+        backgroundColor:'#F35D22',
+        borderRadius:10
     },
     verticalbar:{
         flex:.10,
@@ -172,6 +167,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#111E6C',
         textAlign:"center",
         justifyContent:"center",
+        
     },
     verticalContainer:{
         flexDirection:'row',
@@ -213,6 +209,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#cdcdcd',
         height:width*.4,
         alignItems:"center",
+       
         
     },
     cardButtonLeftContainer:{
@@ -221,7 +218,8 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         alignContent:"center",
-        marginLeft:width*-.1
+        marginLeft:width*-.1,
+        backgroundColor:"green"
     },
     cardButtonRightContainer:{
         flex:.2,
@@ -247,13 +245,17 @@ const styles = StyleSheet.create({
         height:width*.15,
         marginBottom:5,
         backgroundColor:'#F35D22',
-        borderRadius:10
+        borderRadius:10,
+        
     },
     leftButtonDelete:{
         height:width*.15,
+        width:width/9,
         marginBottom:5,
         backgroundColor:'#f36868',
-        borderRadius:10
+        borderRadius:10,
+        borderWidth:5,
+        borderColor:'red'
     },
     imageButton:{
         height:width*.08,
