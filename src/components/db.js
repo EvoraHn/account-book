@@ -4,6 +4,7 @@ import * as SQlite from "expo-sqlite";
 //Crea y abre la base de datos
 const db = SQlite.openDatabase("accounstbook.db");
 
+
 //Extraer la fecha actual
 let getDate = new Date();
 getDate = getDate.getDate()+"-"+(getDate.getMonth()+1)+"-"+getDate.getFullYear();
@@ -46,7 +47,7 @@ const insertAccounts = (nombre, motivo, comentario, cantidad, fecha, estado, suc
           comentario,
           cantidad,
           getDate,
-          estado,
+          "Deben",
           "NUEVA"
         ]);
       },
@@ -113,8 +114,8 @@ const insertAccounts = (nombre, motivo, comentario, cantidad, fecha, estado, suc
             "Juan",
             "venta",
             "Vendi celular",
-            1,
-            "2020-12-11",
+            1000,
+            "11-12-2020",
             "deben",
             "NUEVA",
           ]);
