@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right, Toast, Textarea}
+import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right, Toast,Textarea}
  from "native-base";
 import{StyleSheet,Image,Dimensions} from "react-native";
 import { render } from "react-dom";
 
 const { width } = Dimensions.get("window");
-
-//var numeroActivo=0; // numero que se operará con el total
 var total=0; //total de las operaciones
-const newAccountScreen =({navigation}) => {
+const modifyAccountScreen =({navigation}) => {
 
-    //const [total,serTotal]=useState("");
+    
     const [numeroActivo,setNumeroActivo]= useState("");
     const [errorNumeroActivo,setErrorNumeroActivo]= useState("");
     const [enableSave, setEnableSave] = useState(true);
@@ -23,13 +21,12 @@ const newAccountScreen =({navigation}) => {
       }, [numeroActivo]);
 
     const handlerSuma = async () => 
-    {  
+        {  
             if(numeroActivo){
                 total= total + parseInt(numeroActivo);
            }
         }
-       
-     
+    
     const handlerResta = async () => 
     {
         if(numeroActivo){
@@ -50,14 +47,8 @@ const newAccountScreen =({navigation}) => {
     } 
     const handlerIgual = async () => 
     {
-       
-             //total= parseInt(total);
              total=total;
-             
-        
     } 
-    
-    
     
     return (
         <Container style={styles.main}>
@@ -311,109 +302,4 @@ const styles = StyleSheet.create({
 
 
 })
-export default newAccountScreen;
-/*<Card style={styles.wrap} >
-                                
-<Button style={{flex:1}}>
-<Text>
-1
-</Text>
-
-</Button>
-<Button style={{flex:1}}>
-<Text>
-1
-</Text>
-
-</Button>
-</Card>*/
-
-
-
-/*<Container style={styles.container}>
-                    <Card  style={styles.calculatorContainer}>
-                        <Container style={styles.calculatorScreenContainer}>
-                            <Card style={styles.calculatorScreen}>
-                                <Input placeholder={"0.00"}/>
-                                <Input placeholder={"Total"}/>
-                            </Card>
-                        </Container>
-                        <Container style={styles.calculatorButtonsContainer}>
-
-                        
-                        <Container style={styles.calculatorLeftButtons}>
-                            <Card style={styles.wrap} >
-                                <Button style={{flex:.5}}>
-                                    <Text>
-                                        1
-                                    </Text>
-                                </Button>
-                                <Button style={{flex:.5}}>
-                                    <Text>
-                                        1
-                                    </Text>
-                                </Button>
-                            </Card>
-                            <Card style={styles.wrap} >
-                                <Button style={{flex:.5}}>
-                                    <Text>
-                                        1
-                                    </Text>
-                                </Button>
-                                <Button style={{flex:.5}}>
-                                    <Text>
-                                        1
-                                    </Text>
-                                </Button>
-                            </Card>
-                        </Container>
-                        <Container style={styles.calculatorRightButtons}>
-                        <Card style={styles.wrap} >
-                                <Button style={{flex:.5}}>
-                                    <Text>
-                                        1
-                                    </Text>
-                                </Button>
-                                
-                            </Card>
-                                
-                            
-                           
-                        </Container>
-                        </Container>
-                    </Card>
-                    </Container>*/
-
-
-                    /*
-                     <Card style={styles.calculatorScreen}>
-                                    <Input style={{fontSize:width*0.08}} 
-                                        placeholder={numberError ? "0.00": "Calculando..."}
-                                        placeholderTextColor={numberError ? "purple" : "purple"}
-                                        value={number}
-                                        onChangeText={setNumber}
-                                        />
-                                    <Text style={{fontSize:width*0.2}}>
-                                        {number}</Text>
-                                </Card>*/
-
-                                
-
-    //variables para la calculadora
-    // Verifica si el usuario ingresa información en el input 
-    //const {number,setNumber} = useState("");
-    //const {number,setNumber} = 0;
-    //const [numberError, setNumberError] = useState(false);
-
-  /*  const handlerNumber = () => {
-        if (!number) setNumberError(true);
-        else {
-        //navigation.navigate("Results", { country });
-        setNumber("");
-        setNumberError(false);
-        }
-        suma(number);
-    };
-    useEffect(() => {
-        if (number) setNumberError(false);
-    }, [number]);*/
+export default modifyAccountScreen;

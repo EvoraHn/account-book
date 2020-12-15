@@ -80,7 +80,7 @@ useEffect(() => {
                     <Card transparent >
                         <CardItem style={styles.cardItem}>
                             <Button transparent style={styles.buttonContent} onPress={()=>
-                                {navigation.navigate("allAccountScreen")}} >
+                                {navigation.navigate("modifyAccountScreen")}} >
                                 <Body style={styles.mainContent}>
                                     <Image source={require("../img/2.png")}
                                     transparent style={styles.ImageLogo}/>
