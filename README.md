@@ -74,3 +74,10 @@ Nota: usa CMD para instalar
  - En la carpeta del proyecto escribe el comando:
  <br>
  <code>expo install @expo-google-fonts/raleway</code>
+
+### 5 Sql Lite
+
+ <br>
+ - En la carpeta del proyecto escribe el comando:
+ <br>
+ <code>expo install expo install expo-sqlite</code>
