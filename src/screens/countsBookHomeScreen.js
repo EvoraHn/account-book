@@ -107,16 +107,6 @@ useEffect(() => {
                     
                    </ScrollView>
                    
-                    <Container style={styles.aboutContainer}>
-                        <Button transparent  style={{width:width*.55,height:width*.55,resizeMode:'contain'}} onPress={()=>
-                                {navigation.navigate("aboutScreen")}}>
-                            <Image source={require("../img/about.png") } style={{width:width*.55,height:width*.55,resizeMode:'contain'}}
-                                    transparent />
-
-                        </Button>
-                           
-                    </Container> 
-                   
                </Container>
                
                
