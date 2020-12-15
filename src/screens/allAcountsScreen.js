@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import{StyleSheet,Image,Dimensions,ScrollView} from "react-native";
 import{
     Container,
+    Content,
+    Spinner,
     Text,
     Card,
     CardItem,
@@ -37,7 +39,11 @@ const allAccountsScreen =({navigation}) => {
     });
 
     if (!fontsLoaded){
-        return <AppLoading/>
+        return (
+            <Content style={styles.spinnerStyle}>
+              <Spinner color="green"  />
+            </Content>
+          )
     }
     
     return (
@@ -143,6 +149,12 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         backgroundColor:'#FAF8DC',
     },
+
+    spinnerStyle: {
+        flex: 1,
+        marginTop:240
+      },
+
     verticalBarText:{ 
         transform: [{ rotate: '90deg'}],
         color:"white",
