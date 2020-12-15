@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import{Container,Text,Card,CardItem,Body,Button,Input,Item, Left, Right, Toast}
  from "native-base";
 import{StyleSheet,Image,Dimensions} from "react-native";
@@ -6,9 +6,38 @@ import { render } from "react-dom";
 
 const { width } = Dimensions.get("window");
 
-var numeroActivo=0; // numero que se operará con el total
-var total=0; //total de las operaciones
+//Importar el context de cuentas
+import { AccountsContext } from "../context/AccountContext";
+
+//var numeroActivo=0; // numero que se operará con el total
+//var total=0; //total de las operaciones
+
 const newAccountScreen =({navigation}) => {
+
+    //Use state para las variables de los campos
+    const [nombre, setNombre] = useState("");
+    const [motivo, setMotivo] = useState("");
+    const [comentario, setComentario] = useState("");
+    const [cantidad, setCantidad] = useState("");
+
+    //Use state oara errores
+    const [errorAccount, setErrorAccount] = useState(false);
+
+    //Usar contexto de cuentas
+    const  accounstbook = useContext(AccountsContext);
+    const {addNewAccount, refreshAccounts} = accounstbook;
+
+    const handlerNewAccount = async () =>{
+        if (nombre&&motivo&&comentario&&cantidad){
+            await addNewAccount(nombre, motivo, comentario, cantidad, refreshAccounts);
+
+            console.log("Se guardo la tabla");
+            //Regresar aal menu
+            navigation.goBack();
+        }else {
+            setErrorAccount(true);
+        }
+    };
 
     return (
         <Container style={styles.main}>
@@ -26,7 +55,7 @@ const newAccountScreen =({navigation}) => {
                <Container style={styles.horizontalContainer}>
                     <Card  style={styles.inputBar}>
                         <Item >
-                            <Input placeholder={"Motivo de la cuenta"}/>
+                            <Input value={motivo} onChangeText={setMotivo} placeholder={"Motivo de la cuenta"}/>
                            
                         </Item>
                     </Card>
@@ -40,7 +69,7 @@ const newAccountScreen =({navigation}) => {
                         <Right >
                             <Card  style={styles.inputBarSecondary} >
                                 <Item>
-                                    <Input placeholder={"Acreedor de la cuenta"}/>
+                                    <Input value={nombre} onChangeText={setNombre} placeholder={"Acreedor de la cuenta"}/>
                                 </Item>
                             </Card>
                         </Right>
@@ -48,12 +77,12 @@ const newAccountScreen =({navigation}) => {
                     <Card style={styles.calculatorContainer}>
                         
                                 <Card style={styles.calculatorScreen}>
-                                    <Input style={{fontSize:width*0.08,textAlign:'right'}} 
-                                        placeholder={"0.00"}
-                                        value={numeroActivo}
-                                        onChangeText={numeroActivo}/>
-                                    <Text style={{fontSize:width*0.2,textAlign:'right'}}>
-                                        {total}</Text>
+                                    <Input style={{fontSize:width*0.05,textAlign:'center'}} 
+                                        placeholder={"Ingrese la cantidad"}
+                                        value={cantidad}
+                                        onChangeText={setCantidad}/>
+                                        
+
                                 </Card>
                         
                         <Container style={styles.calculatorButtonsContainer}>
@@ -103,14 +132,15 @@ const newAccountScreen =({navigation}) => {
                     
                     
                     <Card style={styles.comentaryContainer} >
-                        <Input placeholder={"Comentario"}/>
+                        <Input value={comentario} onChangeText={setComentario} placeholder={"Comentario"}/>
                     </Card>
 
                     <Button transparent style={{alignSelf:"flex-end",marginBottom:30}} > 
-                        <Button style={styles.addButton}>
+                        <Button style={styles.addButton}
+                                onPress={handlerNewAccount}
+                                >
                             <Text>Agregar</Text>
-                        </Button>
-                        
+                        </Button>  
                     </Button>
                </Container>
             </Container>
@@ -122,11 +152,11 @@ const newAccountScreen =({navigation}) => {
 
 }
 
-const suma =(numero)=> {
+/*const suma =(numero)=> {
     numero=numero+3;
     alert(numero)
     
-} 
+} */
 
  
 
