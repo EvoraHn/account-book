@@ -21,6 +21,14 @@ const { width, height } = Dimensions.get("window");
 */
 
 const countsBookhomeScreen = ({navigation}) => {
+
+const simpleAlertHandler = () => {
+    //Se crea con el fin de mandar una alerta al usuario cuando entre a
+    //las opcion de cuentas resueltas (que aun no se implementa)
+    alert('De momento no disponible, trabajamos en ello :)');
+}
+
+
 const [fontsLoaded, setFontsLoaded] = useState(false);
 useEffect(() => {
     const loadFontsAsync = async () => {
@@ -80,8 +88,7 @@ useEffect(() => {
                     </Card>
                     <Card transparent >
                         <CardItem style={styles.cardItem}>
-                            <Button transparent style={styles.buttonContent} onPress={()=>
-                                {navigation.navigate("allAccountScreen")}} >
+                            <Button transparent style={styles.buttonContent} onPress={simpleAlertHandler} >
                                 <Body style={styles.mainContent}>
                                     <Image source={require("../img/2.png")}
                                     transparent style={styles.ImageLogo}/>
