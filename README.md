@@ -2,7 +2,7 @@
 
 Aplicación en Javascript con base de datos en sql lite que permite hacer cálculos y guardarlos como recordatorios en notas
 
-░░░░░░░░▄██▄░░░░░░▄▄░░
+			░░░░░░░░▄██▄░░░░░░▄▄░░
 			░░░░░░░▐███▀░░░░░▄███▌
                         ░░▄▀░░▄█▀▀░░░░░░░░▀██░
                         ░█░░░██░░░░░░░░░░░░░░░
@@ -20,9 +20,9 @@ Aplicación en Javascript con base de datos en sql lite que permite hacer cálcu
 
 			              Nota: usa CMD para instalar
                     
-  <br>
-  
-  --
+ <br>
+ <br>
+ 
   #1 Expo ( necesario para el entorno de desarrollo).
 	  - fuera de la carpeta en donde se encuentra el proyecto:
 		  colocas el siguiente comando 
