@@ -14,8 +14,15 @@ Aplicación en Javascript con base de datos en sql lite que permite hacer cálcu
 	░▐████▀██████░░█████░░
 	░░░▀▀▀░░█████▌░████▀░░
 	░░░░░░░░░▀▀███░▀▀▀░░░░
+## Tecnologías utilizadas
 
+- React native
+- Expo
+- React navigation
+- NativeBase
+- Axios
 Guia de Instalación de componentes (NECESARIO)
+
 
 Nota: usa CMD para instalar
                     
