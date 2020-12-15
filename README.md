@@ -17,14 +17,15 @@ Aplicación en Javascript con base de datos en sql lite que permite hacer cálcu
 
 ## Planificación del Proyecto
 
-<a href="https://github.com/users/EvoraHn/projects/2">
+ <a href="https://github.com/users/EvoraHn/projects/2">
 	-proyecto GIT HUB
-</a>
-<br>
-<a href="https://docs.google.com/document/d/1eANrnAEy3_yFAMUGIyllyRz4586AAFL6VYViMDhNTmM/edit?usp=sharing">
+ </a>
+ <br>
+ <a href="https://docs.google.com/document/d/1eANrnAEy3_yFAMUGIyllyRz4586AAFL6VYViMDhNTmM/edit?usp=sharing">
 	-Ideas, paleta de colores y demás
-</a>
-<br>
+ </a>
+ <br>
+
 ## Tecnologías utilizadas
 
 - React native
