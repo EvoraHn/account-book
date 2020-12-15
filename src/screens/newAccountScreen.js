@@ -23,9 +23,19 @@ const newAccountScreen =({navigation}) => {
     //Use state oara errores
     const [errorAccount, setErrorAccount] = useState(false);
 
+    //habilitar boton agregar
+    const [enableSaved, setEnableSaved] = useState(true);
+
     //Usar contexto de cuentas
     const  accounstbook = useContext(AccountsContext);
     const {addNewAccount, refreshAccounts} = accounstbook;
+
+    //Ejecutar el efecto cuando el valor de ls campos de nueva cuenta cambien
+
+    useEffect(() => {
+        if (nombre&&motivo&&comentario) setEnableSaved(false);
+        else setEnableSaved(true);
+    }, [nombre, motivo, comentario]);
 
     const handlerNewAccount = async () =>{
         if (nombre&&motivo&&comentario&&cantidad){
@@ -143,6 +153,7 @@ const newAccountScreen =({navigation}) => {
                     <Button transparent style={{alignSelf:"flex-end",marginBottom:30}} > 
                         <Button style={styles.addButton}
                                 onPress={handlerNewAccount}
+                                disabled={enableSaved}
                                 >
                             <Text>Agregar</Text>
                         </Button>  
